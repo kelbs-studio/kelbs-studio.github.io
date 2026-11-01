@@ -29,7 +29,7 @@
 - **Struktur Visual Ikonik:**
   1. **Top Accent Line:** Garis aksen `border-top: 6px solid #2b69fb` (Electric Blue).
   2. **Midnight Navy Hero (`#0a001b`):** Header & Hero gelap mewah dengan tipografi Montserrat tegas, tombol kapsul taktil, dan skulptur **Interactive 3D Hologram Logo Kelb's Studio** yang melayang dinamis dengan cincin giroskop Three.js dan debu partikel neon.
-  3. **Signature SVG Curved Wave:** Transisi lengkungan kurva SVG dinamis memisahkan hero gelap dengan area galeri terang.
+  3. **Tactile 3D Pushable Buttons:** Seluruh tombol navigasi, aksi, dan CTA utama (`.btn-electric`, `.btn-ghost-light`, `.btn-ghost-dark`, `.btn-3d-*`) dilengkapi bibir 3D tebal (`border-bottom: 4px`), bayangan realistis, dan efek fisik tertekan ke bawah (`translateY(3px)`) saat diklik.
   4. **Light Gallery Body (`#fafeff`):** Galeri proyek dengan kartu rounded mewah (`border-radius: 2rem`), garis tepi halus berpadu pendaran biru (`0 0 1.5rem 0.5rem rgba(43, 105, 251, 0.08)`).
   5. **Inverted Bottom SVG Curve Wave:** Melengkung kembali ke bawah menuju footer midnight navy (`#0a001b`).
 - **Palet Warna:**
