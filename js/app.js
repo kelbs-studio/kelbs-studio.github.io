@@ -150,30 +150,8 @@ function initHero3DCanvas() {
     renderer.domElement.style.pointerEvents = 'none';
     container.insertBefore(renderer.domElement, container.firstChild);
 
-    // 1. Orbiting Gyroscope Ring 1 (Electric Blue)
-    const ringGeo1 = new THREE.TorusGeometry(1.5, 0.02, 16, 100);
-    const ringMat1 = new THREE.MeshBasicMaterial({
-        color: 0x2b69fb,
-        transparent: true,
-        opacity: 0.65
-    });
-    const ringMesh1 = new THREE.Mesh(ringGeo1, ringMat1);
-    ringMesh1.rotation.x = Math.PI / 3;
-    scene.add(ringMesh1);
-
-    // 2. Orbiting Gyroscope Ring 2 (Neon Cyan)
-    const ringGeo2 = new THREE.TorusGeometry(1.8, 0.015, 16, 100);
-    const ringMat2 = new THREE.MeshBasicMaterial({
-        color: 0x38bdf8,
-        transparent: true,
-        opacity: 0.5
-    });
-    const ringMesh2 = new THREE.Mesh(ringGeo2, ringMat2);
-    ringMesh2.rotation.y = Math.PI / 4;
-    scene.add(ringMesh2);
-
-    // 3. Cyber Dust Particles (Twinkling space field)
-    const particlesCount = 75;
+    // Cyber Dust Particles (Twinkling cosmic field behind hologram)
+    const particlesCount = 85;
     const posArray = new Float32Array(particlesCount * 3);
     for (let i = 0; i < particlesCount * 3; i++) {
         posArray[i] = (Math.random() - 0.5) * 6;
@@ -232,12 +210,7 @@ function initHero3DCanvas() {
         targetX += (mouseX - targetX) * 0.05;
         targetY += (mouseY - targetY) * 0.05;
 
-        // Rotate Orbit Rings
-        ringMesh1.rotation.z += 0.008;
-        ringMesh1.rotation.x += 0.004;
-        ringMesh2.rotation.z -= 0.006;
-        ringMesh2.rotation.y += 0.005;
-
+        // Rotate Cosmic Dust Particles
         particles.rotation.y -= 0.001;
         particles.rotation.x += 0.0008;
 
