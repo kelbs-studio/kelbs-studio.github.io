@@ -310,39 +310,53 @@ h1, h2, h3, h4, .font-heading {
     border-bottom-width: 1px;
 }
 
-/* 3D Header Navigation Capsule Buttons */
-.nav-3d-btn {
-    background: rgba(255, 255, 255, 0.06);
-    color: #e2e8f0;
-    font-weight: 600;
-    font-size: 0.78rem;
-    padding: 0.42rem 0.85rem;
-    border-radius: 9999px;
-    border: 1px solid rgba(255, 255, 255, 0.12);
-    border-bottom: 2.5px solid rgba(255, 255, 255, 0.3);
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
-    transition: all 0.15s cubic-bezier(0.16, 1, 0.3, 1);
-    touch-action: manipulation;
-    user-select: none;
+/* Exact Bidan Ismiasih Style Navbar */
+.nav-active-3d {
+    background: #ffffff;
+    color: var(--color-electric-blue) !important;
+    font-weight: 800;
+    font-size: 0.82rem;
+    padding: 0.5rem 1.15rem;
+    border-radius: 0.95rem;
+    border: 1px solid #ffffff;
+    border-bottom: 3.5px solid #1344c2;
+    box-shadow: 0 4px 14px rgba(43, 105, 251, 0.35);
     display: inline-flex;
     align-items: center;
     cursor: pointer;
+    user-select: none;
+    transition: all 0.15s ease;
+}
+
+.nav-active-3d:hover {
+    transform: translateY(-2px);
+    border-bottom-width: 4.5px;
+    box-shadow: 0 8px 18px rgba(43, 105, 251, 0.45);
+}
+
+.nav-active-3d:active {
+    transform: translateY(2px) !important;
+    border-bottom-width: 1px !important;
+    box-shadow: 0 1px 3px rgba(43, 105, 251, 0.2) !important;
+}
+
+.nav-link-clean {
+    color: #cbd5e1;
+    font-weight: 600;
+    font-size: 0.82rem;
+    padding: 0.5rem 0.85rem;
+    border-radius: 0.85rem;
+    transition: all 0.15s ease;
+    display: inline-flex;
+    align-items: center;
+    user-select: none;
     white-space: nowrap;
 }
 
-.nav-3d-btn:hover {
-    background: rgba(255, 255, 255, 0.14);
-    border-color: rgba(56, 189, 248, 0.4);
-    border-bottom-color: #38bdf8;
+.nav-link-clean:hover {
     color: #ffffff;
-    transform: translateY(-1.5px);
-    box-shadow: 0 4px 12px rgba(43, 105, 251, 0.3);
-}
-
-.nav-3d-btn:active {
-    transform: translateY(1.5px) !important;
-    border-bottom-width: 1px !important;
-    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2) !important;
+    background: rgba(255, 255, 255, 0.09);
+    transform: translateY(-1px);
 }
 
 /* 3D Mobile Navigation Buttons */
