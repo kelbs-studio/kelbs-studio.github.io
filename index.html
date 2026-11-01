@@ -29,7 +29,7 @@
     </script>
 
     <!-- Custom Ian Dunkerley Architecture Stylesheet (Cache Busted) -->
-    <link rel="stylesheet" href="css/style.css?v=20261101_3d_btn">
+    <link rel="stylesheet" href="css/style.css?v=20261101_soft3d_nav">
 
     <!-- Lucide Icons -->
     <script src="https://unpkg.com/lucide@latest"></script>
@@ -58,14 +58,14 @@
                     </div>
                 </a>
 
-                <!-- Desktop Navigation Menu (Persis Desain Bidan Ismiasih) -->
+                <!-- Desktop Navigation Menu (Persis Sistem 3D Bidan Ismiasih) -->
                 <nav class="hidden md:flex items-center gap-1.5 text-xs font-semibold text-slate-300">
-                    <a href="#beranda" class="nav-active-3d bg-white text-blue-600 font-extrabold text-xs px-4 py-2 rounded-xl border-b-[3.5px] border-b-blue-800 shadow-md shadow-blue-500/20 active:translate-y-0.5 transition-all inline-flex items-center">Beranda</a>
-                    <a href="#karya" class="nav-link-clean text-slate-300 hover:text-white px-3 py-1.5 rounded-xl transition-all">Karya (My Work)</a>
-                    <a href="#layanan" class="nav-link-clean text-slate-300 hover:text-white px-3 py-1.5 rounded-xl transition-all">Layanan</a>
-                    <a href="#tentang" class="nav-link-clean text-slate-300 hover:text-white px-3 py-1.5 rounded-xl transition-all">Tentang Saya</a>
-                    <a href="#faq" class="nav-link-clean text-slate-300 hover:text-white px-3 py-1.5 rounded-xl transition-all">FAQ</a>
-                    <a href="#kontak" class="nav-link-clean text-slate-300 hover:text-white px-3 py-1.5 rounded-xl transition-all">Kontak</a>
+                    <a href="#beranda" class="nav-link-soft active">Beranda</a>
+                    <a href="#karya" class="nav-link-soft">Karya (My Work)</a>
+                    <a href="#layanan" class="nav-link-soft">Layanan</a>
+                    <a href="#tentang" class="nav-link-soft">Tentang Saya</a>
+                    <a href="#faq" class="nav-link-soft">FAQ</a>
+                    <a href="#kontak" class="nav-link-soft">Kontak</a>
                 </nav>
 
                 <!-- Action Buttons: Dua Tombol 3D Persis Bidan Ismiasih -->
@@ -81,21 +81,39 @@
                 </div>
 
                 <!-- Mobile Hamburger Button -->
-                <button id="mobileMenuBtn" class="md:hidden p-2 rounded-xl bg-white/10 border border-white/20 border-b-[3px] border-b-white/30 text-white focus:outline-none active:translate-y-0.5 active:border-b transition-all" aria-label="Buka Menu">
+                <button id="mobileMenuBtn" class="md:hidden p-2.5 rounded-xl bg-white/10 border border-white/20 border-b-[3px] border-b-white/30 text-white focus:outline-none active:translate-y-0.5 active:border-b transition-all" aria-label="Buka Menu">
                     <i data-lucide="menu" class="w-6 h-6"></i>
                 </button>
             </div>
         </div>
 
-        <!-- Mobile Drawer Navigation -->
-        <div id="mobileMenu" class="hidden md:hidden bg-[#0a001b] border-b border-white/10 px-6 py-6 space-y-4 shadow-2xl">
-            <a href="#beranda" class="mobile-nav-link block text-sm font-semibold text-slate-200 hover:text-blue-400">Beranda</a>
-            <a href="#karya" class="mobile-nav-link block text-sm font-semibold text-slate-200 hover:text-blue-400">Karya (My Work)</a>
-            <a href="#layanan" class="mobile-nav-link block text-sm font-semibold text-slate-200 hover:text-blue-400">Layanan & Keahlian</a>
-            <a href="#tentang" class="mobile-nav-link block text-sm font-semibold text-slate-200 hover:text-blue-400">Tentang Saya</a>
-            <a href="#faq" class="mobile-nav-link block text-sm font-semibold text-slate-200 hover:text-blue-400">Pertanyaan Umum (FAQ)</a>
-            <a href="#kontak" class="mobile-nav-link block text-sm font-semibold text-slate-200 hover:text-blue-400">Kontak</a>
-            <div class="pt-2">
+        <!-- Mobile Drawer Navigation (Persis Bidan Ismiasih) -->
+        <div id="mobileMenu" class="hidden md:hidden bg-[#0a001b]/98 border-b border-white/10 px-5 pt-4 pb-6 space-y-2.5 shadow-2xl">
+            <a href="#beranda" class="mobile-nav-link-soft active">
+                <span>Beranda</span>
+                <i data-lucide="chevron-right" class="w-4 h-4 text-slate-400"></i>
+            </a>
+            <a href="#karya" class="mobile-nav-link-soft">
+                <span>Karya (My Work)</span>
+                <i data-lucide="chevron-right" class="w-4 h-4 text-slate-400"></i>
+            </a>
+            <a href="#layanan" class="mobile-nav-link-soft">
+                <span>Layanan & Keahlian</span>
+                <i data-lucide="chevron-right" class="w-4 h-4 text-slate-400"></i>
+            </a>
+            <a href="#tentang" class="mobile-nav-link-soft">
+                <span>Tentang Saya</span>
+                <i data-lucide="chevron-right" class="w-4 h-4 text-slate-400"></i>
+            </a>
+            <a href="#faq" class="mobile-nav-link-soft">
+                <span>Pertanyaan Umum (FAQ)</span>
+                <i data-lucide="chevron-right" class="w-4 h-4 text-slate-400"></i>
+            </a>
+            <a href="#kontak" class="mobile-nav-link-soft">
+                <span>Kontak</span>
+                <i data-lucide="chevron-right" class="w-4 h-4 text-slate-400"></i>
+            </a>
+            <div class="pt-3">
                 <a href="https://wa.me/6282160641174?text=Halo%20Faber%20(Kelb's%20Studio),%20saya%20tertarik%20untuk%20konsultasi%20pembuatan%20website" target="_blank" class="btn-electric w-full text-xs">
                     <i data-lucide="message-square" class="w-4 h-4"></i>
                     <span>Chat WhatsApp Langsung</span>
@@ -1188,7 +1206,7 @@
         </div>
     </footer>
 
-    <!-- Application Script -->
-    <script src="js/app.js"></script>
+    <!-- Application Script (Cache Busted) -->
+    <script src="js/app.js?v=20261101_soft3d_nav"></script>
 </body>
 </html>

@@ -10,31 +10,8 @@ document.addEventListener('DOMContentLoaded', () => {
         lucide.createIcons();
     }
 
-    // 2. Mobile Menu Drawer
-    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
-    const mobileMenu = document.getElementById('mobileMenu');
-    
-    if (mobileMenuBtn && mobileMenu) {
-        mobileMenuBtn.addEventListener('click', () => {
-            const isHidden = mobileMenu.classList.contains('hidden');
-            if (isHidden) {
-                mobileMenu.classList.remove('hidden');
-                mobileMenuBtn.innerHTML = '<i data-lucide="x" class="w-6 h-6 text-white"></i>';
-            } else {
-                mobileMenu.classList.add('hidden');
-                mobileMenuBtn.innerHTML = '<i data-lucide="menu" class="w-6 h-6 text-white"></i>';
-            }
-            if (typeof lucide !== 'undefined') lucide.createIcons();
-        });
-
-        document.querySelectorAll('.mobile-nav-link').forEach(link => {
-            link.addEventListener('click', () => {
-                mobileMenu.classList.add('hidden');
-                mobileMenuBtn.innerHTML = '<i data-lucide="menu" class="w-6 h-6 text-white"></i>';
-                if (typeof lucide !== 'undefined') lucide.createIcons();
-            });
-        });
-    }
+    // 2. Setup Navigation, Mobile Menu Drawer & Active ScrollSpy (Persis Bidan Ismiasih)
+    setupNavigationAndScrollSpy();
 
     // 3. Native 3D Card Tilt Physics (data-tilt)
     initCard3DTilt();
@@ -57,6 +34,131 @@ document.addEventListener('DOMContentLoaded', () => {
     // 9. Interactive WA-Router Demo (Proyek 4)
     initWaRouterDemo();
 });
+
+// ========================================================
+// 1. NAVIGATION & ACTIVE SCROLLSPY (PERSIS BIDAN ISMIASIH)
+// ========================================================
+function setupNavigationAndScrollSpy() {
+    const mobileBtn = document.getElementById('mobileMenuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    const mobileLinks = document.querySelectorAll('#mobileMenu a.mobile-nav-link-soft');
+    const desktopLinks = document.querySelectorAll('header nav a.nav-link-soft');
+
+    // 1. Toggle Mobile Menu Drawer
+    if (mobileBtn && mobileMenu) {
+        mobileBtn.addEventListener('click', () => {
+            const isHidden = mobileMenu.classList.contains('hidden');
+            if (isHidden) {
+                mobileMenu.classList.remove('hidden');
+                mobileBtn.innerHTML = '<i data-lucide="x" class="w-6 h-6 text-white"></i>';
+            } else {
+                mobileMenu.classList.add('hidden');
+                mobileBtn.innerHTML = '<i data-lucide="menu" class="w-6 h-6 text-white"></i>';
+            }
+            if (typeof lucide !== 'undefined') lucide.createIcons();
+        });
+
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+                if (mobileBtn) {
+                    mobileBtn.innerHTML = '<i data-lucide="menu" class="w-6 h-6 text-white"></i>';
+                }
+                if (typeof lucide !== 'undefined') lucide.createIcons();
+                
+                const href = link.getAttribute('href');
+                if (href && href.startsWith('#')) {
+                    setActiveNavLink(href.substring(1));
+                }
+            });
+        });
+    }
+
+    // 2. Klik Link Desktop: Langsung update highlight tombol seketika
+    desktopLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            const href = link.getAttribute('href');
+            if (href && href.startsWith('#')) {
+                setActiveNavLink(href.substring(1));
+            }
+        });
+    });
+
+    // 3. Scroll Listener dengan requestAnimationFrame untuk performa mulus
+    let scrollTicking = false;
+    window.addEventListener('scroll', () => {
+        if (!scrollTicking) {
+            window.requestAnimationFrame(() => {
+                updateScrollSpy();
+                scrollTicking = false;
+            });
+            scrollTicking = true;
+        }
+    }, { passive: true });
+
+    // Inisialisasi awal saat halaman dibuka
+    updateScrollSpy();
+}
+
+/**
+ * Mengubah status tombol navigasi menjadi aktif (berwarna Soft 3D)
+ */
+function setActiveNavLink(targetId) {
+    if (!targetId) return;
+
+    // Desktop Navbar links
+    const desktopLinks = document.querySelectorAll('header nav a.nav-link-soft');
+    desktopLinks.forEach(link => {
+        const href = link.getAttribute('href');
+        if (href === `#${targetId}`) {
+            link.classList.add('active');
+        } else {
+            link.classList.remove('active');
+        }
+    });
+
+    // Mobile Drawer links
+    const mobileLinks = document.querySelectorAll('#mobileMenu a.mobile-nav-link-soft');
+    mobileLinks.forEach(link => {
+        const href = link.getAttribute('href');
+        if (href === `#${targetId}`) {
+            link.classList.add('active');
+        } else {
+            link.classList.remove('active');
+        }
+    });
+}
+
+/**
+ * Mendeteksi bagian halaman yang sedang berada dalam pandangan mata (viewport)
+ */
+function updateScrollSpy() {
+    const scrollPos = window.scrollY + 140; // Toleransi posisi scroll terhadap header sticky
+    const windowHeight = window.innerHeight;
+    const fullHeight = document.documentElement.scrollHeight;
+
+    // Jika pengguna sudah berada di paling bawah (Kontak / Footer)
+    if (window.scrollY + windowHeight >= fullHeight - 80) {
+        setActiveNavLink('kontak');
+        return;
+    }
+
+    // Pemetaan ID section ke tombol nav aktif (Urutan dari bawah ke atas)
+    const sectionIds = ['kontak', 'faq', 'tentang', 'layanan', 'karya', 'beranda'];
+    for (const id of sectionIds) {
+        const el = document.getElementById(id);
+        if (el) {
+            const top = el.offsetTop;
+            if (scrollPos >= top) {
+                setActiveNavLink(id);
+                return;
+            }
+        }
+    }
+
+    // Default aktif ke beranda jika di posisi atas
+    setActiveNavLink('beranda');
+}
 
 // ========================================================
 // 3D CARD TILT PHYSICS (data-tilt)

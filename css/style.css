@@ -310,78 +310,115 @@ h1, h2, h3, h4, .font-heading {
     border-bottom-width: 1px;
 }
 
-/* Exact Bidan Ismiasih Style Navbar */
-.nav-active-3d {
-    background: #ffffff;
-    color: var(--color-electric-blue) !important;
-    font-weight: 800;
-    font-size: 0.82rem;
-    padding: 0.5rem 1.15rem;
-    border-radius: 0.95rem;
-    border: 1px solid #ffffff;
-    border-bottom: 3.5px solid #1344c2;
-    box-shadow: 0 4px 14px rgba(43, 105, 251, 0.35);
+/* ======================================================== */
+/* EXACT BIDAN ISMIASIH STYLE 3D NAVBAR NAVIGATION         */
+/* ======================================================== */
+
+/* Desktop Navbar Items Soft 3D */
+.nav-link-soft {
+    position: relative;
     display: inline-flex;
     align-items: center;
-    cursor: pointer;
-    user-select: none;
-    transition: all 0.15s ease;
-}
-
-.nav-active-3d:hover {
-    transform: translateY(-2px);
-    border-bottom-width: 4.5px;
-    box-shadow: 0 8px 18px rgba(43, 105, 251, 0.45);
-}
-
-.nav-active-3d:active {
-    transform: translateY(2px) !important;
-    border-bottom-width: 1px !important;
-    box-shadow: 0 1px 3px rgba(43, 105, 251, 0.2) !important;
-}
-
-.nav-link-clean {
+    padding: 0.45rem 0.95rem;
+    border-radius: 0.85rem;
     color: #cbd5e1;
     font-weight: 600;
     font-size: 0.82rem;
-    padding: 0.5rem 0.85rem;
-    border-radius: 0.85rem;
-    transition: all 0.15s ease;
-    display: inline-flex;
-    align-items: center;
-    user-select: none;
     white-space: nowrap;
+    text-decoration: none;
+    user-select: none;
+    cursor: pointer;
+    border: 1px solid transparent;
+    border-bottom: 2px solid transparent;
+    transition: transform 0.18s cubic-bezier(0.34, 1.56, 0.64, 1),
+                box-shadow 0.18s cubic-bezier(0.34, 1.56, 0.64, 1),
+                background 0.18s ease,
+                border-color 0.18s ease,
+                color 0.18s ease;
 }
 
-.nav-link-clean:hover {
+.nav-link-soft:hover {
     color: #ffffff;
-    background: rgba(255, 255, 255, 0.09);
-    transform: translateY(-1px);
+    background: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.18);
+    border-bottom: 2px solid rgba(255, 255, 255, 0.35);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.15), 0 4px 12px rgba(0, 0, 0, 0.3);
+    transform: translateY(-2px);
 }
 
-/* 3D Mobile Navigation Buttons */
-.mobile-nav-link {
+.nav-link-soft:active {
+    transform: translateY(1px);
+    border-bottom-width: 1px;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+/* Active Highlight State for Desktop Navbar (Soft 3D White Pill) */
+.nav-link-soft.active {
+    color: #2b69fb !important;
+    background: linear-gradient(180deg, #ffffff 0%, #f1f5f9 100%) !important;
+    border: 1px solid #ffffff !important;
+    border-bottom: 3.5px solid #1344c2 !important;
+    box-shadow: inset 0 1px 0 #ffffff, 0 4px 14px rgba(43, 105, 251, 0.38) !important;
+    font-weight: 800 !important;
+    transform: translateY(-0.5px);
+}
+
+.nav-link-soft.active:hover {
+    transform: translateY(-2px);
+    box-shadow: inset 0 1px 0 #ffffff, 0 6px 18px rgba(43, 105, 251, 0.5) !important;
+}
+
+.nav-link-soft.active:active {
+    transform: translateY(2px) !important;
+    border-bottom-width: 1.5px !important;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.2) !important;
+}
+
+/* Mobile Drawer Links Soft 3D */
+.mobile-nav-link-soft {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.85rem 1.15rem;
+    border-radius: 1rem;
+    color: #cbd5e1;
+    font-weight: 600;
+    font-size: 0.875rem;
     background: rgba(255, 255, 255, 0.05);
     border: 1px solid rgba(255, 255, 255, 0.1);
-    border-bottom: 3px solid rgba(255, 255, 255, 0.25);
-    border-radius: 1rem;
-    padding: 0.75rem 1rem;
-    transition: all 0.15s ease;
-    display: block;
+    border-bottom: 2.5px solid rgba(255, 255, 255, 0.2);
+    text-decoration: none;
     user-select: none;
+    transition: all 0.18s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
-.mobile-nav-link:hover {
+.mobile-nav-link-soft:hover {
     background: rgba(255, 255, 255, 0.12);
-    border-color: rgba(56, 189, 248, 0.4);
+    border-color: rgba(56, 189, 248, 0.35);
     border-bottom-color: #38bdf8;
     color: #ffffff;
-    transform: translateY(-1px);
+    transform: translateY(-1.5px);
 }
 
-.mobile-nav-link:active {
-    transform: translateY(2px);
+.mobile-nav-link-soft:active {
+    transform: translateY(1.5px);
     border-bottom-width: 1px;
+}
+
+/* Active Highlight State for Mobile Drawer Links */
+.mobile-nav-link-soft.active {
+    background: linear-gradient(180deg, #ffffff 0%, #f1f5f9 100%) !important;
+    color: #2b69fb !important;
+    border: 1px solid #ffffff !important;
+    border-left: 5px solid #2b69fb !important;
+    border-bottom: 3.5px solid #1344c2 !important;
+    font-weight: 800 !important;
+    box-shadow: 0 4px 14px rgba(43, 105, 251, 0.3) !important;
+}
+
+.mobile-nav-link-soft.active i {
+    color: #2b69fb !important;
 }
 
 /* Tech tag pill */
