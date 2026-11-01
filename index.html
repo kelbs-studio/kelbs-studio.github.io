@@ -157,16 +157,31 @@
 
                 </div>
 
-                <!-- Right Column: Interactive 3D WebGL Torus Knot -->
-                <div class="lg:col-span-5 relative flex items-center justify-center min-h-[360px] sm:min-h-[440px]">
-                    <div id="hero3dContainer" class="w-full h-[360px] sm:h-[440px] relative flex items-center justify-center overflow-visible">
-                        <!-- Three.js Canvas Injected Here -->
+                <!-- Right Column: Interactive 3D Hologram Logo Showcase -->
+                <div class="lg:col-span-5 relative flex items-center justify-center min-h-[380px] sm:min-h-[460px]">
+                    <div id="hero3dContainer" class="w-full h-[380px] sm:h-[460px] relative flex items-center justify-center overflow-visible">
+                        <!-- Three.js Canvas Injected in Background (Orbiting rings + glowing particles) -->
+                        
+                        <!-- Central Floating 3D Logo Hologram Card -->
+                        <div id="hologramLogoWrapper" class="relative z-10 w-52 sm:w-64 aspect-square flex items-center justify-center pointer-events-none select-none transition-transform duration-75 ease-out">
+                            <!-- Outer Pulsing Glow Halo -->
+                            <div class="absolute inset-0 rounded-3xl bg-gradient-to-tr from-blue-600/35 via-cyan-400/25 to-transparent blur-2xl animate-pulse"></div>
+                            
+                            <!-- Rotating Cybernetic HUD Rings -->
+                            <div class="absolute -inset-4 rounded-full border border-cyan-400/25 border-dashed animate-[spin_24s_linear_infinite]"></div>
+                            <div class="absolute -inset-8 rounded-full border border-blue-500/20 border-dotted animate-[spin_40s_linear_infinite_reverse]"></div>
+
+                            <!-- The 3D Emblem Card with Glass Border & Glow -->
+                            <div class="relative w-full h-full rounded-3xl overflow-hidden border border-blue-400/40 shadow-[0_0_40px_rgba(43,105,251,0.4)] bg-[#0a001b]/70 backdrop-blur-md p-3 flex items-center justify-center">
+                                <img src="img/logo-icon.png" alt="Kelb's Studio 3D Hologram Logo" class="w-full h-full object-contain filter drop-shadow-[0_0_20px_rgba(56,189,248,0.6)]">
+                            </div>
+                        </div>
                     </div>
 
                     <!-- Floating Badge -->
                     <div class="absolute bottom-2 right-4 px-3.5 py-2 rounded-2xl bg-white/10 backdrop-blur-md border border-white/15 text-white flex items-center gap-2 shadow-2xl">
-                        <span class="w-2 h-2 rounded-full bg-blue-400"></span>
-                        <span class="text-xs font-mono">Interactive WebGL 3D</span>
+                        <span class="w-2 h-2 rounded-full bg-cyan-400 animate-pulse"></span>
+                        <span class="text-xs font-mono">Interactive 3D Hologram</span>
                     </div>
                 </div>
 

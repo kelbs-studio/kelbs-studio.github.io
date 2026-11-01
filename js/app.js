@@ -129,66 +129,62 @@ function initScrollReveal() {
 }
 
 // ========================================================
-// THREE.JS INTERACTIVE 3D CANVAS IN HERO
+// THREE.JS INTERACTIVE 3D CANVAS & HOLOGRAM IN HERO
 // ========================================================
 function initHero3DCanvas() {
     const container = document.getElementById('hero3dContainer');
+    const logoWrapper = document.getElementById('hologramLogoWrapper');
     if (!container || typeof THREE === 'undefined') return;
 
     const scene = new THREE.Scene();
-    const camera = new THREE.PerspectiveCamera(42, container.clientWidth / container.clientHeight, 0.1, 1000);
+    const camera = new THREE.PerspectiveCamera(45, container.clientWidth / container.clientHeight, 0.1, 1000);
     camera.position.z = 5.2;
 
     const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
     renderer.setSize(container.clientWidth, container.clientHeight);
     renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
-    container.appendChild(renderer.domElement);
+    renderer.domElement.style.position = 'absolute';
+    renderer.domElement.style.top = '0';
+    renderer.domElement.style.left = '0';
+    renderer.domElement.style.zIndex = '1';
+    renderer.domElement.style.pointerEvents = 'none';
+    container.insertBefore(renderer.domElement, container.firstChild);
 
-    // 3D Objects: Scaled comfortably to prevent any canvas clipping
-    const geometry = new THREE.TorusKnotGeometry(0.82, 0.25, 120, 16);
-    
-    // Wireframe mesh
-    const wireframeMaterial = new THREE.MeshBasicMaterial({
-        color: 0x2b69fb, // Electric Blue
-        wireframe: true,
+    // 1. Orbiting Gyroscope Ring 1 (Electric Blue)
+    const ringGeo1 = new THREE.TorusGeometry(1.5, 0.02, 16, 100);
+    const ringMat1 = new THREE.MeshBasicMaterial({
+        color: 0x2b69fb,
         transparent: true,
-        opacity: 0.4
+        opacity: 0.65
     });
-    const knotMesh = new THREE.Mesh(geometry, wireframeMaterial);
-    scene.add(knotMesh);
+    const ringMesh1 = new THREE.Mesh(ringGeo1, ringMat1);
+    ringMesh1.rotation.x = Math.PI / 3;
+    scene.add(ringMesh1);
 
-    // Inner smooth core mesh
-    const coreMaterial = new THREE.MeshPhongMaterial({
-        color: 0x38bdf8, // Cyan glow core
-        shininess: 100,
+    // 2. Orbiting Gyroscope Ring 2 (Neon Cyan)
+    const ringGeo2 = new THREE.TorusGeometry(1.8, 0.015, 16, 100);
+    const ringMat2 = new THREE.MeshBasicMaterial({
+        color: 0x38bdf8,
         transparent: true,
-        opacity: 0.2,
-        depthWrite: false
+        opacity: 0.5
     });
-    const coreMesh = new THREE.Mesh(geometry, coreMaterial);
-    scene.add(coreMesh);
+    const ringMesh2 = new THREE.Mesh(ringGeo2, ringMat2);
+    ringMesh2.rotation.y = Math.PI / 4;
+    scene.add(ringMesh2);
 
-    // Lighting
-    const ambientLight = new THREE.AmbientLight(0xffffff, 0.9);
-    scene.add(ambientLight);
-
-    const pointLight = new THREE.PointLight(0x2b69fb, 2, 50);
-    pointLight.position.set(5, 5, 5);
-    scene.add(pointLight);
-
-    // Floating Particle Cloud
-    const particlesCount = 45;
+    // 3. Cyber Dust Particles (Twinkling space field)
+    const particlesCount = 75;
     const posArray = new Float32Array(particlesCount * 3);
     for (let i = 0; i < particlesCount * 3; i++) {
-        posArray[i] = (Math.random() - 0.5) * 4.5;
+        posArray[i] = (Math.random() - 0.5) * 6;
     }
     const particlesGeometry = new THREE.BufferGeometry();
     particlesGeometry.setAttribute('position', new THREE.BufferAttribute(posArray, 3));
     const particlesMaterial = new THREE.PointsMaterial({
         size: 0.045,
-        color: 0x2b69fb,
+        color: 0x38bdf8,
         transparent: true,
-        opacity: 0.7
+        opacity: 0.75
     });
     const particles = new THREE.Points(particlesGeometry, particlesMaterial);
     scene.add(particles);
@@ -202,8 +198,8 @@ function initHero3DCanvas() {
     window.addEventListener('mousemove', (e) => {
         const windowHalfX = window.innerWidth / 2;
         const windowHalfY = window.innerHeight / 2;
-        mouseX = (e.clientX - windowHalfX) * 0.0008;
-        mouseY = (e.clientY - windowHalfY) * 0.0008;
+        mouseX = (e.clientX - windowHalfX) / windowHalfX;
+        mouseY = (e.clientY - windowHalfY) / windowHalfY;
     });
 
     // Touch support for smartphones & iPads
@@ -211,8 +207,8 @@ function initHero3DCanvas() {
         if (e.touches.length > 0) {
             const windowHalfX = window.innerWidth / 2;
             const windowHalfY = window.innerHeight / 2;
-            mouseX = (e.touches[0].clientX - windowHalfX) * 0.0008;
-            mouseY = (e.touches[0].clientY - windowHalfY) * 0.0008;
+            mouseX = (e.touches[0].clientX - windowHalfX) / windowHalfX;
+            mouseY = (e.touches[0].clientY - windowHalfY) / windowHalfY;
         }
     }, { passive: true });
 
@@ -228,19 +224,30 @@ function initHero3DCanvas() {
     window.addEventListener('resize', handleResize);
     window.addEventListener('orientationchange', handleResize);
 
+    let clock = 0;
     function animate() {
         requestAnimationFrame(animate);
+        clock += 0.02;
 
         targetX += (mouseX - targetX) * 0.05;
         targetY += (mouseY - targetY) * 0.05;
 
-        knotMesh.rotation.x += 0.003;
-        knotMesh.rotation.y += 0.005;
-        knotMesh.rotation.y += targetX * 0.4;
-        knotMesh.rotation.x += targetY * 0.4;
+        // Rotate Orbit Rings
+        ringMesh1.rotation.z += 0.008;
+        ringMesh1.rotation.x += 0.004;
+        ringMesh2.rotation.z -= 0.006;
+        ringMesh2.rotation.y += 0.005;
 
-        coreMesh.rotation.copy(knotMesh.rotation);
-        particles.rotation.y -= 0.0015;
+        particles.rotation.y -= 0.001;
+        particles.rotation.x += 0.0008;
+
+        // Interactive 3D Parallax Tilt for the Central Hologram Emblem
+        if (logoWrapper) {
+            const floatY = Math.sin(clock) * 9; // Gentle sinusoidal levitation
+            const tiltY = targetX * 18;         // -18deg to +18deg yaw
+            const tiltX = -targetY * 18;        // -18deg to +18deg pitch
+            logoWrapper.style.transform = `perspective(1000px) translateY(${floatY.toFixed(1)}px) rotateX(${tiltX.toFixed(2)}deg) rotateY(${tiltY.toFixed(2)}deg)`;
+        }
 
         renderer.render(scene, camera);
     }
