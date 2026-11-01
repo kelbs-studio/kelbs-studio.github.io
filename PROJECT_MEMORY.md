@@ -16,6 +16,7 @@
 ---
 
 ## 2. 📞 Kontak Resmi & Channel Komunikasi
+- **GitHub Resmi:** `https://github.com/kelbs-studio`
 - **WhatsApp Resmi:** `+62 821-6064-1174` (Format tautan: `https://wa.me/6282160641174`)
 - **Email Resmi:** `halo.kelbstudio@gmail.com`
 - **Target Klien:** Pemilik Klinik/Tenaga Medis, UMKM, Company Profile Bisnis, & Redesain Website Usang.
