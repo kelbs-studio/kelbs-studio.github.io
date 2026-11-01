@@ -8,7 +8,8 @@
 - **Nama Developer:** Faber Tampubolon
 - **Studio Moniker / Brand:** Kelb's Studio
 - **Role / Posisi:** Front-End Web Developer & UI/UX Specialist
-- **Monogram Logo:** Huruf "K" dengan aksen Electric Blue modern (*Monogram Badge*)
+- **Monogram Logo:** 3D Glassmorphic Crystal `< K />` Monogram dengan aksen Neon Cyan & Electric Blue (`img/logo-icon.png`)
+- **Favicon:** 3D Crystal Logo Mark (`img/favicon.png`)
 - **Filosofi:** *"Membangun Website Modern, Cepat & Berdaya Konversi Tinggi"* — mengutamakan kode bersih, tanpa template berat WordPress, loading cepat di jaringan seluler 4G, dan kepemilikan 100% di tangan klien.
 - **Garansi Layanan:** Garansi pemeliharaan & perbaikan gratis 3 bulan penuh untuk setiap klien.
 - **Kustomisasi & Materi Klien:** Klien bebas merequest konsep tampilan, palet warna, item layanan, dan foto-foto sendiri. Cukup disiapkan dalam bentuk catatan ringkas (Word/WA) dan file foto untuk diserahkan ke Faber.
