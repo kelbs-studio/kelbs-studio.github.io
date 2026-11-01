@@ -1,0 +1,11 @@
+# Dependencies & system files
+.DS_Store
+Thumbs.db
+*.tmp
+
+# Local AI / editor configs
+.gemini/
+.vscode/
+
+# Large raw camera files (web-optimized versions are in img/)
+*.jpeg

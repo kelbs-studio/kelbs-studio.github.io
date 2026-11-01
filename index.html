@@ -1,0 +1,1176 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Faber Tampubolon">
+    <meta name="creator" content="Kelb's Studio">
+    <title>Faber Tampubolon | Kelb's Studio — Front-End Developer & UI/UX Specialist</title>
+    <meta name="description" content="Portofolio resmi Faber Tampubolon (Kelb's Studio). Front-end web developer & UI/UX specialist berfokus pada website klinik, UMKM, dan profesional yang cepat, modern, dan terhubung ke WhatsApp.">
+
+    <!-- Favicon Monogram K SVG -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='25' fill='%232b69fb'/><path d='M32 25v50M32 50l26-25M34 48l28 27' stroke='white' stroke-width='10' stroke-linecap='round' stroke-linejoin='round'/></svg>">
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        midnight: '#0a001b',
+                        electric: '#2b69fb',
+                        canvas: '#fafeff',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Custom Ian Dunkerley Architecture Stylesheet -->
+    <link rel="stylesheet" href="css/style.css">
+
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <!-- Three.js (Lightweight 3D WebGL Library) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+</head>
+<body class="bg-[#fafeff] text-[#0a001b] antialiased selection:bg-[#2b69fb] selection:text-white relative min-h-screen">
+
+    <!-- ======================================================== -->
+    <!-- 1. STICKY HEADER (MIDNIGHT NAVY + ACCENT BORDER)         -->
+    <!-- ======================================================== -->
+    <header id="mainHeader" class="sticky top-0 z-50 transition-all duration-300 bg-[#0a001b]/95 backdrop-blur-md border-b border-white/10 text-white">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6">
+            <div class="flex items-center justify-between h-20">
+                
+                <!-- Logo & Personal Brand Identifier -->
+                <a href="#beranda" class="flex items-center gap-3.5 group">
+                    <img src="img/avatar.jpg" alt="Faber Tampubolon" class="w-10 h-10 rounded-xl object-cover object-top border border-blue-500/40 group-hover:scale-105 transition-transform shadow-lg shadow-blue-500/20">
+                    <div>
+                        <div class="flex items-center gap-2">
+                            <span class="font-heading font-extrabold text-base tracking-tight text-white">Faber Tampubolon</span>
+                            <span class="text-[10px] font-mono font-bold text-blue-400 bg-blue-950/80 border border-blue-500/30 px-2 py-0.5 rounded-full">Kelb's</span>
+                        </div>
+                        <p class="text-[11px] text-slate-400 font-medium hidden sm:block">Front-End Developer & UI/UX</p>
+                    </div>
+                </a>
+
+                <!-- Desktop Navigation Menu -->
+                <nav class="hidden md:flex items-center gap-7 text-xs sm:text-sm font-semibold text-slate-300">
+                    <a href="#beranda" class="hover:text-blue-400 transition-colors">Beranda</a>
+                    <a href="#karya" class="hover:text-blue-400 transition-colors">Karya (My Work)</a>
+                    <a href="#layanan" class="hover:text-blue-400 transition-colors">Layanan</a>
+                    <a href="#tentang" class="hover:text-blue-400 transition-colors">Tentang Saya</a>
+                    <a href="#faq" class="hover:text-blue-400 transition-colors">FAQ</a>
+                    <a href="#kontak" class="hover:text-blue-400 transition-colors">Kontak</a>
+                </nav>
+
+                <!-- Action Button -->
+                <div class="hidden sm:flex items-center gap-3">
+                    <a href="https://wa.me/6282160641174?text=Halo%20Faber%20(Kelb's%20Studio),%20saya%20tertarik%20untuk%20konsultasi%20pembuatan%20website" target="_blank" class="btn-electric !py-2.5 !px-5 text-xs">
+                        <i data-lucide="message-square" class="w-4 h-4"></i>
+                        <span>Ajak Kolaborasi</span>
+                    </a>
+                </div>
+
+                <!-- Mobile Hamburger Button -->
+                <button id="mobileMenuBtn" class="md:hidden p-2 rounded-xl bg-white/10 border border-white/20 text-white focus:outline-none" aria-label="Buka Menu">
+                    <i data-lucide="menu" class="w-6 h-6"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Drawer Navigation -->
+        <div id="mobileMenu" class="hidden md:hidden bg-[#0a001b] border-b border-white/10 px-6 py-6 space-y-4 shadow-2xl">
+            <a href="#beranda" class="mobile-nav-link block text-sm font-semibold text-slate-200 hover:text-blue-400">Beranda</a>
+            <a href="#karya" class="mobile-nav-link block text-sm font-semibold text-slate-200 hover:text-blue-400">Karya (My Work)</a>
+            <a href="#layanan" class="mobile-nav-link block text-sm font-semibold text-slate-200 hover:text-blue-400">Layanan & Keahlian</a>
+            <a href="#tentang" class="mobile-nav-link block text-sm font-semibold text-slate-200 hover:text-blue-400">Tentang Saya</a>
+            <a href="#faq" class="mobile-nav-link block text-sm font-semibold text-slate-200 hover:text-blue-400">Pertanyaan Umum (FAQ)</a>
+            <a href="#kontak" class="mobile-nav-link block text-sm font-semibold text-slate-200 hover:text-blue-400">Kontak</a>
+            <div class="pt-2">
+                <a href="https://wa.me/6282160641174?text=Halo%20Faber%20(Kelb's%20Studio),%20saya%20tertarik%20untuk%20konsultasi%20pembuatan%20website" target="_blank" class="btn-electric w-full text-xs">
+                    <i data-lucide="message-square" class="w-4 h-4"></i>
+                    <span>Chat WhatsApp Langsung</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- ======================================================== -->
+    <!-- 2. IAN DUNKERLEY SIGNATURE HERO SECTION                  -->
+    <!-- ======================================================== -->
+    <section id="beranda" class="dunkerley-hero">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 w-full py-12 sm:py-20 z-10">
+            
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                
+                <!-- Left Column: Copy & Actions -->
+                <div class="lg:col-span-7 space-y-6">
+                    
+                    <!-- Availability Pill -->
+                    <div class="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-white/5 border border-white/10 text-xs text-slate-300">
+                        <span class="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse"></span>
+                        <span class="font-mono text-[11px]">Tersedia untuk Proyek Baru • Based in Indonesia</span>
+                    </div>
+
+                    <!-- Bold Main Headline -->
+                    <h1 class="text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-tight">
+                        Membangun Website <span class="text-blue-400">Cepat, Rapi</span> & Berdaya Konversi Tinggi.
+                    </h1>
+
+                    <!-- Honest Pitch -->
+                    <p class="text-sm sm:text-base text-slate-300 leading-relaxed max-w-xl">
+                        Halo! Saya <span class="text-white font-bold">Faber Tampubolon</span>, front-end developer & UI/UX specialist di <span class="text-blue-400 font-bold">Kelb's Studio</span>. Menggabungkan kode bersih, performa loading kilat di HP, dan integrasi WhatsApp otomatis untuk melejitkan kredibilitas klinik, UMKM, dan bisnis Anda.
+                    </p>
+
+                    <!-- Buttons -->
+                    <div class="pt-2 flex flex-col sm:flex-row items-stretch sm:items-center gap-4">
+                        <a href="#karya" class="btn-electric">
+                            <span>Lihat Karya Unggulan</span>
+                            <i data-lucide="arrow-down" class="w-4 h-4"></i>
+                        </a>
+                        <a href="https://wa.me/6282160641174?text=Halo%20Faber%20(Kelb's%20Studio),%20saya%20mau%20konsultasi%20pembuatan%20website" target="_blank" class="btn-ghost-dark">
+                            <i data-lucide="message-circle" class="w-4 h-4 text-emerald-400"></i>
+                            <span>Konsultasi WhatsApp</span>
+                        </a>
+                    </div>
+
+                    <!-- Micro Highlights -->
+                    <div class="pt-6 border-t border-white/10 grid grid-cols-3 gap-4 text-left">
+                        <div>
+                            <span class="text-xl sm:text-2xl font-extrabold text-white font-mono block">1 Live</span>
+                            <span class="text-[11px] text-slate-400">Klinik Aktif</span>
+                        </div>
+                        <div>
+                            <span class="text-xl sm:text-2xl font-extrabold text-blue-400 font-mono block">&lt; 1 Detik</span>
+                            <span class="text-[11px] text-slate-400">Speed 4G</span>
+                        </div>
+                        <div>
+                            <span class="text-xl sm:text-2xl font-extrabold text-emerald-400 font-mono block">3 Bulan</span>
+                            <span class="text-[11px] text-slate-400">Garansi Penuh</span>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Right Column: Interactive 3D WebGL Torus Knot -->
+                <div class="lg:col-span-5 relative flex items-center justify-center min-h-[360px] sm:min-h-[440px]">
+                    <div id="hero3dContainer" class="w-full h-[360px] sm:h-[440px] relative flex items-center justify-center overflow-visible">
+                        <!-- Three.js Canvas Injected Here -->
+                    </div>
+
+                    <!-- Floating Badge -->
+                    <div class="absolute bottom-2 right-4 px-3.5 py-2 rounded-2xl bg-white/10 backdrop-blur-md border border-white/15 text-white flex items-center gap-2 shadow-2xl">
+                        <span class="w-2 h-2 rounded-full bg-blue-400"></span>
+                        <span class="text-xs font-mono">Interactive WebGL 3D</span>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ======================================================== -->
+    <!-- 3. SIGNATURE TOP SVG CURVE WAVE DIVIDER                  -->
+    <!-- ======================================================== -->
+    <svg class="svg-curve" viewBox="0 0 1440 79" xmlns="http://www.w3.org/2000/svg">
+        <path d="M-100 79C-100 79 218.416 23.165 693.5 23.165C1168.58 23.165 1487 79 1487 79V0H-100V79Z"></path>
+    </svg>
+
+    <!-- ======================================================== -->
+    <!-- 4. "MY WORK" / KARYA UNGGULAN GALLERY                    -->
+    <!-- ======================================================== -->
+    <section id="karya" class="py-20 sm:py-28 relative">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6">
+            
+            <!-- Section Header (Ian Dunkerley Style) -->
+            <div class="text-center max-w-2xl mx-auto mb-16 reveal-on-scroll">
+                <span class="text-xs font-mono font-bold text-blue-600 uppercase tracking-widest block mb-2">My Work</span>
+                <h2 class="text-3xl sm:text-5xl font-extrabold text-[#0a001b] tracking-tight">Karya Unggulan</h2>
+                <p class="text-sm sm:text-base text-slate-600 mt-3 leading-relaxed">
+                    Koleksi proyek web live production, simulasi sistem bisnis interaktif, dan open-source tool yang dirancang untuk kecepatan, estetika modern, serta konversi maksimal.
+                </p>
+            </div>
+
+            <!-- FLAGSHIP PROJECT: TPMB BIDAN ISMIASIH (.dunkerley-project-card) -->
+            <div class="dunkerley-project-card p-6 sm:p-10 mb-16 reveal-on-scroll" data-tilt>
+                
+                <!-- Project Top Bar -->
+                <div class="flex flex-col sm:flex-row sm:items-center justify-between pb-6 border-b border-slate-100 gap-4">
+                    <div class="flex items-center gap-4">
+                        <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-blue-600 to-indigo-700 text-white flex items-center justify-center font-extrabold text-xl shadow-lg shadow-blue-500/20 shrink-0">
+                            BI
+                        </div>
+                        <div>
+                            <div class="flex items-center gap-2 flex-wrap">
+                                <h3 class="text-lg sm:text-2xl font-extrabold text-[#0a001b]">TPMB Bidan Ismiasih, AMKeb, SKM</h3>
+                                <span class="text-[11px] font-bold text-emerald-700 bg-emerald-50 border border-emerald-200 px-3 py-0.5 rounded-full flex items-center gap-1.5">
+                                    <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
+                                    Live Production (.COM)
+                                </span>
+                            </div>
+                            <p class="text-xs sm:text-sm text-slate-500 mt-1">Klinik Kebidanan Mandiri & Layanan Home Care Ibu & Bayi • Jatirasa, Kota Bekasi</p>
+                        </div>
+                    </div>
+
+                    <div class="flex items-center gap-2">
+                        <a href="https://bidanismiasih.com" target="_blank" class="btn-electric !py-2.5 !px-5 text-xs">
+                            <span>Kunjungi Website Asli</span>
+                            <i data-lucide="external-link" class="w-4 h-4"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- 2-Column Spacious Feature Showcase (Never Squished) -->
+                <div class="py-8 grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
+                    
+                    <!-- Fitur 1: Kalkulator HPL Naegele Interaktif -->
+                    <div class="p-6 rounded-2xl bg-[#fafeff] border border-blue-500/15 shadow-sm space-y-4">
+                        <div class="flex items-center justify-between pb-3 border-b border-slate-200/60">
+                            <div class="flex items-center gap-2.5">
+                                <div class="w-8 h-8 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center">
+                                    <i data-lucide="calculator" class="w-4 h-4"></i>
+                                </div>
+                                <span class="text-sm font-bold text-[#0a001b] font-mono">Fitur 1: Kalkulator HPL Medis</span>
+                            </div>
+                            <span class="text-[10px] font-mono font-semibold text-blue-700 bg-blue-50 border border-blue-200 px-2.5 py-0.5 rounded-full">
+                                Coba Langsung
+                            </span>
+                        </div>
+
+                        <p class="text-xs text-slate-600 leading-relaxed">
+                            Pasien hamil dapat langsung menghitung taksiran persalinan rumus Naegele (280 hari) dan usia kehamilan secara instan tanpa reload halaman:
+                        </p>
+
+                        <!-- Input HPHT Form -->
+                        <div class="space-y-3">
+                            <div>
+                                <label for="simHpht" class="block text-xs font-mono text-slate-700 font-medium mb-1.5">
+                                    Hari Pertama Haid Terakhir (HPHT):
+                                </label>
+                                <input type="date" id="simHpht" class="calc-input-clean">
+                            </div>
+
+                            <button id="simBtnHitung" class="w-full btn-electric !py-2.5 text-xs flex items-center justify-center gap-2">
+                                <i data-lucide="play" class="w-3.5 h-3.5"></i>
+                                <span>Hitung Taksiran Persalinan</span>
+                            </button>
+                        </div>
+
+                        <!-- Dynamic Real-Time Output -->
+                        <div id="simResult" class="p-4 rounded-xl bg-white border border-slate-200 space-y-2.5 shadow-sm">
+                            <div class="flex items-center justify-between text-xs">
+                                <span class="text-slate-500 font-medium">Taksiran Lahir (HPL):</span>
+                                <span id="simHplDate" class="font-bold text-blue-700 font-mono text-sm">-</span>
+                            </div>
+                            <div class="flex items-center justify-between text-xs">
+                                <span class="text-slate-500 font-medium">Usia Kehamilan:</span>
+                                <span id="simGestasi" class="font-bold text-[#0a001b] font-mono text-sm">-</span>
+                            </div>
+                            <div class="pt-2 border-t border-slate-100 flex items-center justify-between text-xs">
+                                <span class="text-slate-500 font-medium">Status Trimester:</span>
+                                <span id="simTrimester" class="px-2.5 py-0.5 rounded-full text-xs font-mono text-slate-600 bg-slate-100 border border-slate-200 font-semibold">-</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Fitur 2: Paket Home Care 6 Hari & WhatsApp Routing -->
+                    <div class="p-6 rounded-2xl bg-[#fafeff] border border-blue-500/15 shadow-sm space-y-4">
+                        <div class="flex items-center justify-between pb-3 border-b border-slate-200/60">
+                            <div class="flex items-center gap-2.5">
+                                <div class="w-8 h-8 rounded-xl bg-rose-50 text-rose-600 flex items-center justify-center">
+                                    <i data-lucide="baby" class="w-4 h-4"></i>
+                                </div>
+                                <span class="text-sm font-bold text-[#0a001b] font-mono">Fitur 2: Layanan & Booking WA</span>
+                            </div>
+                            <span class="text-[10px] font-mono font-bold text-rose-700 bg-rose-50 border border-rose-200 px-2.5 py-0.5 rounded-full">
+                                Paket Unggulan
+                            </span>
+                        </div>
+
+                        <!-- Pricing Badge -->
+                        <div class="p-4 rounded-xl bg-gradient-to-br from-rose-50 via-white to-white border border-rose-100">
+                            <span class="text-[10px] font-bold text-rose-600 uppercase tracking-wider block font-mono">Paket Pascasalin</span>
+                            <h4 class="text-base sm:text-lg font-bold text-[#0a001b] mt-0.5">Home Care 6 Hari Lengkap</h4>
+                            <div class="text-xl sm:text-2xl font-extrabold text-rose-600 mt-1 font-mono">Rp 625.000</div>
+                        </div>
+
+                        <ul class="space-y-2.5 text-xs text-slate-600">
+                            <li class="flex items-center gap-2">
+                                <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-600 shrink-0"></i>
+                                <span>Perawatan tali pusat & memandikan bayi baru lahir</span>
+                            </li>
+                            <li class="flex items-center gap-2">
+                                <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-600 shrink-0"></i>
+                                <span>Pijat laktasi untuk kelancaran ASI bunda pascasalin</span>
+                            </li>
+                            <li class="flex items-center gap-2">
+                                <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-600 shrink-0"></i>
+                                <span>Evaluasi masa nifas & deteksi dini tanda bahaya</span>
+                            </li>
+                        </ul>
+
+                        <div class="pt-2">
+                            <a href="https://wa.me/6282160641174?text=Halo%20Bidan%20Ismiasih,%20saya%20ingin%20booking%20Paket%20Home%20Care%206%20Hari" target="_blank" class="w-full py-3 rounded-full text-xs font-bold bg-emerald-600 hover:bg-emerald-700 text-white flex items-center justify-center gap-2 shadow-sm transition-colors">
+                                <i data-lucide="message-circle" class="w-4 h-4"></i>
+                                <span>Pesan Paket via WhatsApp Bidan</span>
+                            </a>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Card Bottom Tech Stack & Links -->
+                <div class="pt-6 border-t border-slate-100 flex flex-col sm:flex-row items-center justify-between gap-4">
+                    <div class="flex items-center gap-2 flex-wrap">
+                        <span class="tech-pill">HTML5 Semantic</span>
+                        <span class="tech-pill">Tailwind CSS</span>
+                        <span class="tech-pill">Vanilla JS ES6+</span>
+                        <span class="tech-pill">Kalkulator Naegele</span>
+                        <span class="tech-pill">LiteSpeed Server</span>
+                        <span class="tech-pill">SSL HTTPS</span>
+                    </div>
+
+                    <div class="flex items-center gap-3 w-full sm:w-auto">
+                        <a href="https://bidanismiasih.com" target="_blank" class="btn-ghost-light !py-2 !px-4 text-xs">
+                            <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
+                            <span>Buka Live</span>
+                        </a>
+                        <button onclick="copyContact('https://bidanismiasih.com', 'Tautan Website Bidan Ismiasih')" class="btn-ghost-light !py-2 !px-4 text-xs">
+                            <i data-lucide="copy" class="w-3.5 h-3.5 text-slate-500"></i>
+                            <span>Salin Link</span>
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- ======================================================== -->
+            <!-- PROJECT 2: SELARAS COFFEE & ARTISAN ROASTERY             -->
+            <!-- ======================================================== -->
+            <div class="dunkerley-project-card p-6 sm:p-10 mb-16 reveal-on-scroll" data-tilt>
+                
+                <!-- Project Top Bar -->
+                <div class="flex flex-col sm:flex-row sm:items-center justify-between pb-6 border-b border-slate-100 gap-4">
+                    <div class="flex items-center gap-4">
+                        <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-amber-500 to-orange-600 text-white flex items-center justify-center font-extrabold text-xl shadow-lg shadow-orange-500/20 shrink-0">
+                            SC
+                        </div>
+                        <div>
+                            <div class="flex items-center gap-2 flex-wrap">
+                                <h3 class="text-lg sm:text-2xl font-extrabold text-[#0a001b]">Selaras Coffee & Artisan Roastery</h3>
+                                <span class="text-[11px] font-bold text-amber-800 bg-amber-50 border border-amber-200 px-3 py-0.5 rounded-full flex items-center gap-1.5">
+                                    <span class="w-1.5 h-1.5 rounded-full bg-amber-500 animate-pulse"></span>
+                                    Commercial Showcase
+                                </span>
+                            </div>
+                            <p class="text-xs sm:text-sm text-slate-500 mt-1">Sistem Menu QR Interaktif, Live Cart Simulator & WhatsApp Direct Checkout • F&B Experience</p>
+                        </div>
+                    </div>
+
+                    <div class="flex items-center gap-2">
+                        <a href="#simCafeBox" class="btn-electric !py-2.5 !px-5 text-xs">
+                            <span>Coba Order Live</span>
+                            <i data-lucide="arrow-down" class="w-4 h-4"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- 2-Column Spacious Feature Showcase -->
+                <div class="py-8 grid grid-cols-1 lg:grid-cols-2 gap-8 items-start" id="simCafeBox">
+                    
+                    <!-- Fitur 1: Interactive Menu & Cart Simulator -->
+                    <div class="p-6 rounded-2xl bg-[#fafeff] border border-orange-500/15 shadow-sm space-y-4">
+                        <div class="flex items-center justify-between pb-3 border-b border-slate-200/60">
+                            <div class="flex items-center gap-2.5">
+                                <div class="w-8 h-8 rounded-xl bg-orange-50 text-orange-600 flex items-center justify-center">
+                                    <i data-lucide="coffee" class="w-4 h-4"></i>
+                                </div>
+                                <span class="text-sm font-bold text-[#0a001b] font-mono">Fitur 1: Simulasi Menu & Keranjang</span>
+                            </div>
+                            <span class="text-[10px] font-mono font-semibold text-orange-700 bg-orange-50 border border-orange-200 px-2.5 py-0.5 rounded-full">
+                                Live Interactive
+                            </span>
+                        </div>
+
+                        <p class="text-xs text-slate-600 leading-relaxed">
+                            Pilih menu di bawah ini untuk melihat kalkulasi harga real-time dan format checkout yang otomatis tersusun ke WhatsApp barista:
+                        </p>
+
+                        <!-- Menu Checkbox List -->
+                        <div class="space-y-2.5">
+                            <label class="flex items-center justify-between p-3 rounded-xl bg-white border border-slate-200 cursor-pointer hover:border-orange-400 transition-colors">
+                                <div class="flex items-center gap-3">
+                                    <input type="checkbox" class="cafe-item-cb rounded border-slate-300 text-orange-600 focus:ring-orange-500 w-4 h-4" data-name="Es Kopi Susu Aren" data-price="22000" checked>
+                                    <div>
+                                        <div class="text-xs font-bold text-slate-800">Es Kopi Susu Gula Aren</div>
+                                        <div class="text-[10px] text-slate-500">Espresso blend, fresh milk, gula aren organik</div>
+                                    </div>
+                                </div>
+                                <span class="text-xs font-mono font-bold text-orange-600">Rp 22.000</span>
+                            </label>
+
+                            <label class="flex items-center justify-between p-3 rounded-xl bg-white border border-slate-200 cursor-pointer hover:border-orange-400 transition-colors">
+                                <div class="flex items-center gap-3">
+                                    <input type="checkbox" class="cafe-item-cb rounded border-slate-300 text-orange-600 focus:ring-orange-500 w-4 h-4" data-name="Kyoto Matcha Latte" data-price="26000" checked>
+                                    <div>
+                                        <div class="text-xs font-bold text-slate-800">Kyoto Matcha Latte</div>
+                                        <div class="text-[10px] text-slate-500">Pure Uji matcha grade, creamy milk</div>
+                                    </div>
+                                </div>
+                                <span class="text-xs font-mono font-bold text-orange-600">Rp 26.000</span>
+                            </label>
+
+                            <label class="flex items-center justify-between p-3 rounded-xl bg-white border border-slate-200 cursor-pointer hover:border-orange-400 transition-colors">
+                                <div class="flex items-center gap-3">
+                                    <input type="checkbox" class="cafe-item-cb rounded border-slate-300 text-orange-600 focus:ring-orange-500 w-4 h-4" data-name="Butter Croissant Parisien" data-price="24000">
+                                    <div>
+                                        <div class="text-xs font-bold text-slate-800">Butter Croissant Parisien</div>
+                                        <div class="text-[10px] text-slate-500">Flaky pastry, French Normandy butter</div>
+                                    </div>
+                                </div>
+                                <span class="text-xs font-mono font-bold text-orange-600">Rp 24.000</span>
+                            </label>
+
+                            <label class="flex items-center justify-between p-3 rounded-xl bg-white border border-slate-200 cursor-pointer hover:border-orange-400 transition-colors">
+                                <div class="flex items-center gap-3">
+                                    <input type="checkbox" class="cafe-item-cb rounded border-slate-300 text-orange-600 focus:ring-orange-500 w-4 h-4" data-name="Truffle Fries with Aioli" data-price="28000">
+                                    <div>
+                                        <div class="text-xs font-bold text-slate-800">Truffle Fries with Garlic Dip</div>
+                                        <div class="text-[10px] text-slate-500">Kentang gurih aroma truffle & keju parmesan</div>
+                                    </div>
+                                </div>
+                                <span class="text-xs font-mono font-bold text-orange-600">Rp 28.000</span>
+                            </label>
+                        </div>
+
+                        <!-- Table Input & Dynamic Total -->
+                        <div class="p-4 rounded-xl bg-white border border-slate-200 space-y-3">
+                            <div class="flex items-center justify-between">
+                                <label for="cafeTableInput" class="text-xs text-slate-600 font-medium">Nomor Meja / Area:</label>
+                                <input type="text" id="cafeTableInput" value="Meja 04 (Area Indoor)" class="calc-input-clean !w-44 !py-1 text-xs text-right font-mono">
+                            </div>
+                            <div class="flex items-center justify-between pt-2 border-t border-slate-100">
+                                <span class="text-xs font-bold text-slate-700">Total Pesanan:</span>
+                                <span id="cafeTotalDisplay" class="text-base sm:text-lg font-extrabold text-orange-600 font-mono">Rp 48.000</span>
+                            </div>
+                        </div>
+
+                        <!-- Checkout Button -->
+                        <a id="cafeBtnOrder" href="https://wa.me/6282160641174" target="_blank" class="w-full py-3 rounded-full text-xs font-bold bg-orange-600 hover:bg-orange-700 text-white flex items-center justify-center gap-2 shadow-sm transition-colors">
+                            <i data-lucide="message-circle" class="w-4 h-4"></i>
+                            <span>Kirim Pesanan ke WhatsApp Barista</span>
+                        </a>
+                    </div>
+
+                    <!-- Fitur 2: Business Highlights & Architecture -->
+                    <div class="p-6 rounded-2xl bg-[#fafeff] border border-orange-500/15 shadow-sm space-y-5">
+                        <div class="flex items-center justify-between pb-3 border-b border-slate-200/60">
+                            <div class="flex items-center gap-2.5">
+                                <div class="w-8 h-8 rounded-xl bg-amber-50 text-amber-600 flex items-center justify-center">
+                                    <i data-lucide="sparkles" class="w-4 h-4"></i>
+                                </div>
+                                <span class="text-sm font-bold text-[#0a001b] font-mono">Fitur 2: Value Bisnis F&B</span>
+                            </div>
+                            <span class="text-[10px] font-mono font-bold text-amber-800 bg-amber-50 border border-amber-200 px-2.5 py-0.5 rounded-full">
+                                High Margin
+                            </span>
+                        </div>
+
+                        <div class="space-y-4 text-xs text-slate-600">
+                            <div class="p-4 rounded-xl bg-white border border-slate-200">
+                                <div class="flex items-center gap-2 font-bold text-slate-800 mb-1">
+                                    <i data-lucide="zap" class="w-4 h-4 text-orange-500"></i>
+                                    <span>Nol Biaya Langganan Bulanan (Zero Monthly SaaS)</span>
+                                </div>
+                                <p class="text-slate-500 leading-relaxed text-[11px]">
+                                    Tanpa potongan komisi 20-30% platform aggregator pihak ketiga. Web mandiri milik kafe 100%, langsung menerima pesanan kasir via WhatsApp.
+                                </p>
+                            </div>
+
+                            <div class="p-4 rounded-xl bg-white border border-slate-200">
+                                <div class="flex items-center gap-2 font-bold text-slate-800 mb-1">
+                                    <i data-lucide="qr-code" class="w-4 h-4 text-blue-500"></i>
+                                    <span>QR Code Instan Tanpa Install Aplikasi</span>
+                                </div>
+                                <p class="text-slate-500 leading-relaxed text-[11px]">
+                                    Pengunjung cukup scan QR di meja, menu terbuka dalam waktu kurang dari 1 detik. Ringan, responsif, dan hemat kuota pengguna.
+                                </p>
+                            </div>
+
+                            <div class="p-4 rounded-xl bg-white border border-slate-200">
+                                <div class="flex items-center gap-2 font-bold text-slate-800 mb-1">
+                                    <i data-lucide="shield-check" class="w-4 h-4 text-emerald-500"></i>
+                                    <span>Format Pesanan Rapi Anti Salah Catat</span>
+                                </div>
+                                <p class="text-slate-500 leading-relaxed text-[11px]">
+                                    Barista menerima format teks otomatis berisikan nomor meja, item, rincian harga, serta waktu order yang langsung siap cetak/proses.
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Demo Testimonial / Metric -->
+                        <div class="p-4 rounded-xl bg-gradient-to-r from-orange-50 to-amber-50 border border-orange-100 flex items-center justify-between">
+                            <div>
+                                <span class="text-[10px] font-bold text-orange-700 uppercase font-mono tracking-wider">Hasil Implementasi</span>
+                                <div class="text-sm font-extrabold text-[#0a001b] mt-0.5">+45% Efisiensi Antrian Kasir</div>
+                            </div>
+                            <span class="text-2xl font-black text-orange-500 font-mono">0.8s</span>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Card Bottom Tech Stack & Links -->
+                <div class="pt-6 border-t border-slate-100 flex flex-col sm:flex-row items-center justify-between gap-4">
+                    <div class="flex items-center gap-2 flex-wrap">
+                        <span class="tech-pill">Client-Side Cart Engine</span>
+                        <span class="tech-pill">Vanilla JavaScript</span>
+                        <span class="tech-pill">Tailwind CSS</span>
+                        <span class="tech-pill">WhatsApp URI Protocol</span>
+                        <span class="tech-pill">QR On-Table Ready</span>
+                    </div>
+
+                    <div class="flex items-center gap-3 w-full sm:w-auto">
+                        <button onclick="copyContact('https://wa.me/6282160641174?text=Halo%20Faber,%20saya%20tertarik%20bikin%20website%20menu%20QR%20untuk%20kafe%20saya', 'Pesan Template Kafe')" class="btn-ghost-light !py-2 !px-4 text-xs">
+                            <i data-lucide="copy" class="w-3.5 h-3.5 text-slate-500"></i>
+                            <span>Salin Diskusi Kafe</span>
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- ======================================================== -->
+            <!-- PROJECT 3: PRIMA AUTO DETAILING & NANO CERAMIC           -->
+            <!-- ======================================================== -->
+            <div class="dunkerley-project-card p-6 sm:p-10 mb-16 reveal-on-scroll" data-tilt>
+                
+                <!-- Project Top Bar -->
+                <div class="flex flex-col sm:flex-row sm:items-center justify-between pb-6 border-b border-slate-100 gap-4">
+                    <div class="flex items-center gap-4">
+                        <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-blue-700 to-cyan-500 text-white flex items-center justify-center font-extrabold text-xl shadow-lg shadow-cyan-500/20 shrink-0">
+                            PA
+                        </div>
+                        <div>
+                            <div class="flex items-center gap-2 flex-wrap">
+                                <h3 class="text-lg sm:text-2xl font-extrabold text-[#0a001b]">Prima Auto Detailing & Nano Ceramic</h3>
+                                <span class="text-[11px] font-bold text-cyan-800 bg-cyan-50 border border-cyan-200 px-3 py-0.5 rounded-full flex items-center gap-1.5">
+                                    <span class="w-1.5 h-1.5 rounded-full bg-cyan-500 animate-pulse"></span>
+                                    Commercial Showcase
+                                </span>
+                            </div>
+                            <p class="text-xs sm:text-sm text-slate-500 mt-1">Platform Booking Salon Mobil & Estimator Nano Coating Berdasarkan Kategori Dimensi Kendaraan</p>
+                        </div>
+                    </div>
+
+                    <div class="flex items-center gap-2">
+                        <a href="#simAutoBox" class="btn-electric !py-2.5 !px-5 text-xs">
+                            <span>Hitung Estimasi Biaya</span>
+                            <i data-lucide="arrow-down" class="w-4 h-4"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- 2-Column Spacious Feature Showcase -->
+                <div class="py-8 grid grid-cols-1 lg:grid-cols-2 gap-8 items-start" id="simAutoBox">
+                    
+                    <!-- Fitur 1: Interactive Vehicle Tier Selector & Live Estimator -->
+                    <div class="p-6 rounded-2xl bg-[#fafeff] border border-cyan-500/15 shadow-sm space-y-4">
+                        <div class="flex items-center justify-between pb-3 border-b border-slate-200/60">
+                            <div class="flex items-center gap-2.5">
+                                <div class="w-8 h-8 rounded-xl bg-cyan-50 text-cyan-600 flex items-center justify-center">
+                                    <i data-lucide="car" class="w-4 h-4"></i>
+                                </div>
+                                <span class="text-sm font-bold text-[#0a001b] font-mono">Fitur 1: Estimator Ukuran Mobil</span>
+                            </div>
+                            <span class="text-[10px] font-mono font-semibold text-cyan-700 bg-cyan-50 border border-cyan-200 px-2.5 py-0.5 rounded-full">
+                                Coba Pilih
+                            </span>
+                        </div>
+
+                        <p class="text-xs text-slate-600 leading-relaxed">
+                            Pilih kategori ukuran mobil Anda di bawah ini untuk melihat rincian paket, durasi pengerjaan, dan estimasi biaya coating:
+                        </p>
+
+                        <!-- Vehicle Tier Segment Buttons -->
+                        <div class="flex gap-2">
+                            <button type="button" class="auto-tier-btn" data-tier="small">Small Car</button>
+                            <button type="button" class="auto-tier-btn" data-tier="medium">Medium SUV</button>
+                            <button type="button" class="auto-tier-btn" data-tier="large">Large MPV</button>
+                        </div>
+
+                        <!-- Dynamic Output Card -->
+                        <div class="p-5 rounded-xl bg-white border border-slate-200 space-y-4 shadow-sm">
+                            <div class="border-b border-slate-100 pb-3">
+                                <div id="autoTierTitle" class="text-sm font-extrabold text-[#0a001b]">Medium Sedan & Compact SUV</div>
+                                <div id="autoTierExamples" class="text-[11px] text-slate-500 mt-0.5 font-mono">Honda HR-V, Civic, CR-V, Toyota Corolla Cross, Mazda CX-5</div>
+                            </div>
+
+                            <div class="grid grid-cols-2 gap-3 text-xs">
+                                <div class="p-3 rounded-lg bg-slate-50 border border-slate-100">
+                                    <span class="text-[10px] text-slate-500 block uppercase font-mono">Biaya Paket:</span>
+                                    <span id="autoTierPrice" class="font-bold text-cyan-700 font-mono text-base">Rp 2.400.000</span>
+                                </div>
+                                <div class="p-3 rounded-lg bg-slate-50 border border-slate-100">
+                                    <span class="text-[10px] text-slate-500 block uppercase font-mono">Durasi Pengerjaan:</span>
+                                    <span id="autoTierDuration" class="font-bold text-slate-800 font-mono text-xs">2 Hari Kerja</span>
+                                </div>
+                            </div>
+
+                            <div class="text-xs text-slate-600 space-y-1">
+                                <span class="font-bold text-slate-700 block text-[11px] uppercase font-mono">Paket Pengerjaan Termasuk:</span>
+                                <ul id="autoTierFeatures" class="space-y-1.5 text-xs text-slate-600 pt-1">
+                                    <!-- Populated by JS -->
+                                </ul>
+                            </div>
+
+                            <div class="pt-2 border-t border-slate-100 flex items-center justify-between text-xs">
+                                <span class="text-slate-500">Jaminan Garansi:</span>
+                                <span id="autoTierWarranty" class="px-2.5 py-0.5 rounded-full text-xs font-mono text-cyan-800 bg-cyan-50 border border-cyan-200 font-semibold">3 Tahun Garansi Kilau</span>
+                            </div>
+                        </div>
+
+                        <!-- WA Booking Slot Button -->
+                        <a id="autoTierWaBtn" href="https://wa.me/6282160641174" target="_blank" class="w-full py-3 rounded-full text-xs font-bold bg-cyan-600 hover:bg-cyan-700 text-white flex items-center justify-center gap-2 shadow-sm transition-colors">
+                            <i data-lucide="message-circle" class="w-4 h-4"></i>
+                            <span>Booking Slot Salon Mobil via WhatsApp</span>
+                        </a>
+                    </div>
+
+                    <!-- Fitur 2: High Conversion Detailing Blueprint -->
+                    <div class="p-6 rounded-2xl bg-[#fafeff] border border-cyan-500/15 shadow-sm space-y-5">
+                        <div class="flex items-center justify-between pb-3 border-b border-slate-200/60">
+                            <div class="flex items-center gap-2.5">
+                                <div class="w-8 h-8 rounded-xl bg-cyan-50 text-cyan-600 flex items-center justify-center">
+                                    <i data-lucide="shield-check" class="w-4 h-4"></i>
+                                </div>
+                                <span class="text-sm font-bold text-[#0a001b] font-mono">Fitur 2: Strategi Konversi Calon Klien</span>
+                            </div>
+                            <span class="text-[10px] font-mono font-bold text-cyan-800 bg-cyan-50 border border-cyan-200 px-2.5 py-0.5 rounded-full">
+                                Auto-Lead
+                            </span>
+                        </div>
+
+                        <div class="space-y-4 text-xs text-slate-600">
+                            <div class="p-4 rounded-xl bg-white border border-slate-200">
+                                <div class="flex items-center gap-2 font-bold text-slate-800 mb-1">
+                                    <i data-lucide="eye" class="w-4 h-4 text-cyan-600"></i>
+                                    <span>Transparansi Biaya Tanpa Jebakan</span>
+                                </div>
+                                <p class="text-slate-500 leading-relaxed text-[11px]">
+                                    Pemilik mobil premium sering enggan bertanya jika harga disembunyikan. Estimator transparan meningkatkan booking rate hingga 3x lipat dibanding form kontak biasa.
+                                </p>
+                            </div>
+
+                            <div class="p-4 rounded-xl bg-white border border-slate-200">
+                                <div class="flex items-center gap-2 font-bold text-slate-800 mb-1">
+                                    <i data-lucide="calendar" class="w-4 h-4 text-blue-600"></i>
+                                    <span>Slot Availability Awareness</span>
+                                </div>
+                                <p class="text-slate-500 leading-relaxed text-[11px]">
+                                    Sistem membatasi pengerjaan salon maksimal 2 mobil per hari guna menjaga ketelitian polesan multi-stage dan kualitas curing oven infrared.
+                                </p>
+                            </div>
+
+                            <div class="p-4 rounded-xl bg-white border border-slate-200">
+                                <div class="flex items-center gap-2 font-bold text-slate-800 mb-1">
+                                    <i data-lucide="award" class="w-4 h-4 text-amber-500"></i>
+                                    <span>Bukti Fisik Garansi Terdaftar</span>
+                                </div>
+                                <p class="text-slate-500 leading-relaxed text-[11px]">
+                                    Setiap mobil yang dikerjakan mendapatkan kartu e-warranty garansi nano ceramic yang dapat dicek validitasnya secara digital.
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Quality Metric -->
+                        <div class="p-4 rounded-xl bg-gradient-to-r from-cyan-50 to-blue-50 border border-cyan-100 flex items-center justify-between">
+                            <div>
+                                <span class="text-[10px] font-bold text-cyan-800 uppercase font-mono tracking-wider">Tingkat Ketahanan</span>
+                                <div class="text-sm font-extrabold text-[#0a001b] mt-0.5">9H Diamond Hardness Coating</div>
+                            </div>
+                            <span class="text-2xl font-black text-cyan-600 font-mono">100%</span>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Card Bottom Tech Stack & Links -->
+                <div class="pt-6 border-t border-slate-100 flex flex-col sm:flex-row items-center justify-between gap-4">
+                    <div class="flex items-center gap-2 flex-wrap">
+                        <span class="tech-pill">Dynamic Segmenter Engine</span>
+                        <span class="tech-pill">Tailwind CSS Responsive</span>
+                        <span class="tech-pill">Micro-Interactions</span>
+                        <span class="tech-pill">WhatsApp Deep Link</span>
+                        <span class="tech-pill">High-Conversion UX</span>
+                    </div>
+
+                    <div class="flex items-center gap-3 w-full sm:w-auto">
+                        <button onclick="copyContact('https://wa.me/6282160641174?text=Halo%20Faber,%20saya%20tertarik%20bikin%20website%20katalog%20jasa%20seperti%20Prima%20Detailing', 'Pesan Template Otomotif')" class="btn-ghost-light !py-2 !px-4 text-xs">
+                            <i data-lucide="copy" class="w-3.5 h-3.5 text-slate-500"></i>
+                            <span>Salin Diskusi Otomotif</span>
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- ======================================================== -->
+            <!-- PROJECT 4: KELB'S WA-ROUTER.JS (OPEN SOURCE TOOL)        -->
+            <!-- ======================================================== -->
+            <div class="dunkerley-project-card p-6 sm:p-10 mb-16 reveal-on-scroll" data-tilt>
+                
+                <!-- Project Top Bar -->
+                <div class="flex flex-col sm:flex-row sm:items-center justify-between pb-6 border-b border-slate-100 gap-4">
+                    <div class="flex items-center gap-4">
+                        <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-emerald-600 to-teal-700 text-white flex items-center justify-center font-extrabold text-xl shadow-lg shadow-teal-500/20 shrink-0 font-mono">
+                            WR
+                        </div>
+                        <div>
+                            <div class="flex items-center gap-2 flex-wrap">
+                                <h3 class="text-lg sm:text-2xl font-extrabold text-[#0a001b]">Kelb's WA-Router.js</h3>
+                                <span class="text-[11px] font-bold text-emerald-800 bg-emerald-50 border border-emerald-200 px-3 py-0.5 rounded-full flex items-center gap-1.5 font-mono">
+                                    <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
+                                    Open Source • 2.1 KB
+                                </span>
+                            </div>
+                            <p class="text-xs sm:text-sm text-slate-500 mt-1">Micro JavaScript Library untuk Mengubah Form HTML Menjadi Pesan WhatsApp Terstruktur Tanpa Backend Server</p>
+                        </div>
+                    </div>
+
+                    <div class="flex items-center gap-2">
+                        <a href="https://github.com/faber-kelbstudio" target="_blank" class="btn-electric !py-2.5 !px-5 text-xs">
+                            <i data-lucide="github" class="w-4 h-4"></i>
+                            <span>Lihat Repository</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- 2-Column Spacious Feature Showcase -->
+                <div class="py-8 grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
+                    
+                    <!-- Fitur 1: Code Snippet & Implementation -->
+                    <div class="p-6 rounded-2xl bg-[#0a001b] border border-blue-500/20 shadow-sm space-y-4 text-white">
+                        <div class="flex items-center justify-between pb-3 border-b border-white/10">
+                            <div class="flex items-center gap-2.5">
+                                <div class="w-8 h-8 rounded-xl bg-emerald-500/20 text-emerald-400 flex items-center justify-center">
+                                    <i data-lucide="terminal" class="w-4 h-4"></i>
+                                </div>
+                                <span class="text-sm font-bold text-white font-mono">Code: 1 Baris Script Tag</span>
+                            </div>
+                            <span class="text-[10px] font-mono font-semibold text-emerald-400 bg-emerald-500/10 border border-emerald-500/30 px-2.5 py-0.5 rounded-full">
+                                Zero Config
+                            </span>
+                        </div>
+
+                        <p class="text-xs text-slate-400 leading-relaxed">
+                            Cukup masukkan atribut <code class="text-blue-400 font-mono">data-wa-router</code> pada tag form HTML apa pun. Form akan otomatis diparsing menjadi URL WhatsApp yang valid saat di-submit:
+                        </p>
+
+                        <!-- Code Block (Ian Dunkerley inspired) -->
+                        <div class="p-4 rounded-xl bg-black/60 border border-white/10 font-mono text-[11px] text-slate-300 leading-relaxed overflow-x-auto space-y-1">
+                            <div class="text-slate-500">&lt;!-- 1. Include script minified (2.1 KB) --&gt;</div>
+                            <div class="text-emerald-400">&lt;script src="wa-router.min.js"&gt;&lt;/script&gt;</div>
+                            <br>
+                            <div class="text-slate-500">&lt;!-- 2. Cukup pasang data-wa-router --&gt;</div>
+                            <div>&lt;<span class="text-rose-400">form</span> <span class="text-yellow-400">data-wa-router</span>=<span class="text-emerald-300">"+6282160641174"</span>&gt;</div>
+                            <div class="pl-4">&lt;<span class="text-rose-400">input</span> <span class="text-yellow-400">name</span>=<span class="text-emerald-300">"nama"</span> <span class="text-yellow-400">required</span>&gt;</div>
+                            <div class="pl-4">&lt;<span class="text-rose-400">select</span> <span class="text-yellow-400">name</span>=<span class="text-emerald-300">"layanan"</span>&gt;...&lt;/<span class="text-rose-400">select</span>&gt;</div>
+                            <div class="pl-4">&lt;<span class="text-rose-400">button</span> <span class="text-yellow-400">type</span>=<span class="text-emerald-300">"submit"</span>&gt;Kirim&lt;/<span class="text-rose-400">button</span>&gt;</div>
+                            <div>&lt;/<span class="text-rose-400">form</span>&gt;</div>
+                        </div>
+
+                        <!-- Copy Script Button -->
+                        <button onclick="copyContact('&lt;script src=&quot;https://cdn.jsdelivr.net/gh/faber-kelbstudio/wa-router/dist/wa-router.min.js&quot;&gt;&lt;/script&gt;', 'Script Tag WA-Router')" class="w-full py-2.5 rounded-full text-xs font-mono font-bold bg-white/10 hover:bg-white/20 text-white flex items-center justify-center gap-2 transition-colors border border-white/15">
+                            <i data-lucide="copy" class="w-3.5 h-3.5"></i>
+                            <span>Salin CDN Script Tag</span>
+                        </button>
+                    </div>
+
+                    <!-- Fitur 2: Live Interactive Test Runner -->
+                    <div class="p-6 rounded-2xl bg-[#fafeff] border border-emerald-500/15 shadow-sm space-y-4">
+                        <div class="flex items-center justify-between pb-3 border-b border-slate-200/60">
+                            <div class="flex items-center gap-2.5">
+                                <div class="w-8 h-8 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center">
+                                    <i data-lucide="play-circle" class="w-4 h-4"></i>
+                                </div>
+                                <span class="text-sm font-bold text-[#0a001b] font-mono">Fitur 2: Test Run Langsung</span>
+                            </div>
+                            <span class="text-[10px] font-mono font-bold text-emerald-800 bg-emerald-50 border border-emerald-200 px-2.5 py-0.5 rounded-full">
+                                Coba Form
+                            </span>
+                        </div>
+
+                        <p class="text-xs text-slate-600 leading-relaxed">
+                            Ketik data di bawah ini untuk menguji bagaimana WA-Router mengubah input form menjadi payload link WhatsApp secara real-time:
+                        </p>
+
+                        <!-- Live Demo Form -->
+                        <form id="waRouterDemoForm" class="space-y-3">
+                            <div>
+                                <label for="waRouterInputName" class="block text-xs font-mono text-slate-700 font-medium mb-1">Nama Pemesan:</label>
+                                <input type="text" id="waRouterInputName" value="Budi Santoso" class="calc-input-clean text-xs">
+                            </div>
+
+                            <div>
+                                <label for="waRouterInputService" class="block text-xs font-mono text-slate-700 font-medium mb-1">Pilihan Solusi:</label>
+                                <select id="waRouterInputService" class="calc-input-clean text-xs bg-white">
+                                    <option value="Website Profil Bisnis & UMKM">Website Profil Bisnis & UMKM</option>
+                                    <option value="Website Klinik / Praktik Tenaga Medis">Website Klinik / Praktik Tenaga Medis</option>
+                                    <option value="Custom Web Application & Interactive UI">Custom Web Application & Interactive UI</option>
+                                    <option value="Redesain & Optimasi Kecepatan Web">Redesain & Optimasi Kecepatan Web</option>
+                                </select>
+                            </div>
+
+                            <div>
+                                <label for="waRouterInputNotes" class="block text-xs font-mono text-slate-700 font-medium mb-1">Catatan Tambahan:</label>
+                                <input type="text" id="waRouterInputNotes" value="Ada referensi konsep sendiri, siap bahan" class="calc-input-clean text-xs">
+                            </div>
+
+                            <!-- Generated Link Preview -->
+                            <div class="p-3 rounded-xl bg-slate-50 border border-slate-200 space-y-1">
+                                <span class="text-[10px] font-mono font-bold text-slate-500 uppercase block">Preview Encoded URL:</span>
+                                <div id="waRouterPreviewUrl" class="font-mono text-[11px] text-blue-600 truncate">wa.me/6282160641174?text=...</div>
+                            </div>
+
+                            <button type="submit" class="w-full btn-electric !py-2.5 text-xs flex items-center justify-center gap-2">
+                                <i data-lucide="send" class="w-3.5 h-3.5"></i>
+                                <span>Test Run Router (Buka WhatsApp)</span>
+                            </button>
+                        </form>
+                    </div>
+
+                </div>
+
+                <!-- Card Bottom Tech Stack & Links -->
+                <div class="pt-6 border-t border-slate-100 flex flex-col sm:flex-row items-center justify-between gap-4">
+                    <div class="flex items-center gap-2 flex-wrap">
+                        <span class="tech-pill">Micro Library 2.1 KB</span>
+                        <span class="tech-pill">Zero Dependencies</span>
+                        <span class="tech-pill">Client-Side Only</span>
+                        <span class="tech-pill">MIT License</span>
+                        <span class="tech-pill">Vanilla JS ES6</span>
+                    </div>
+
+                    <div class="flex items-center gap-3 w-full sm:w-auto">
+                        <button onclick="copyContact('npm i @kelbstudio/wa-router', 'Command NPM')" class="btn-ghost-light !py-2 !px-4 text-xs font-mono">
+                            <i data-lucide="terminal" class="w-3.5 h-3.5 text-slate-500"></i>
+                            <span>npm i @kelbstudio/wa-router</span>
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+
+
+        </div>
+    </section>
+
+    <!-- ======================================================== -->
+    <!-- 5. LAYANAN & KEAHLIAN (SERVICES CARDS)                   -->
+    <!-- ======================================================== -->
+    <section id="layanan" class="py-20 border-t border-slate-100 bg-[#fafeff]">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6">
+            
+            <div class="text-center max-w-2xl mx-auto mb-16 reveal-on-scroll">
+                <span class="text-xs font-mono font-bold text-blue-600 uppercase tracking-widest block mb-2">Services</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-[#0a001b]">Apa yang Bisa Saya Bangun untuk Anda?</h2>
+                <p class="text-sm text-slate-600 mt-3">
+                    Fokus pada satu hal: <strong>mempermudah calon pelanggan atau pasien untuk langsung menghubungi bisnis Anda</strong>.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                
+                <!-- Service 1 -->
+                <div class="dunkerley-project-card flex flex-col justify-between reveal-on-scroll" data-tilt>
+                    <div>
+                        <div class="w-12 h-12 rounded-2xl bg-rose-50 text-rose-600 flex items-center justify-center mb-5">
+                            <i data-lucide="stethoscope" class="w-6 h-6"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-[#0a001b]">Website Klinik & Tenaga Medis</h3>
+                        <p class="text-xs sm:text-sm text-slate-600 mt-2 leading-relaxed">
+                            Khusus dokter, bidan mandiri, fisioterapi, dan klinik pratama. Jadwal praktik, izin SIPB/STR, dan kalkulator kehamilan/kesehatan interaktif.
+                        </p>
+                    </div>
+                    <ul class="mt-6 pt-4 border-t border-slate-100 space-y-2 text-xs text-slate-600">
+                        <li class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-rose-600"></i> Booking WhatsApp rapi</li>
+                        <li class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-rose-600"></i> Peta lokasi Google Maps</li>
+                        <li class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-rose-600"></i> Kalkulator medis Naegele</li>
+                    </ul>
+                </div>
+
+                <!-- Service 2 -->
+                <div class="dunkerley-project-card flex flex-col justify-between reveal-on-scroll" data-tilt>
+                    <div>
+                        <div class="w-12 h-12 rounded-2xl bg-blue-50 text-blue-600 flex items-center justify-center mb-5">
+                            <i data-lucide="briefcase" class="w-6 h-6"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-[#0a001b]">Landing Page UMKM & Profil Bisnis</h3>
+                        <p class="text-xs sm:text-sm text-slate-600 mt-2 leading-relaxed">
+                            Cocok untuk bisnis jasa, toko, properti, atau studio. Desain berkelas yang langsung menjelaskan layanan Anda tanpa berbelit-belit.
+                        </p>
+                    </div>
+                    <ul class="mt-6 pt-4 border-t border-slate-100 space-y-2 text-xs text-slate-600">
+                        <li class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-blue-600"></i> Katalog produk & portofolio</li>
+                        <li class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-blue-600"></i> Tombol chat order instan</li>
+                        <li class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-blue-600"></i> Setup domain .COM resmi</li>
+                    </ul>
+                </div>
+
+                <!-- Service 3 -->
+                <div class="dunkerley-project-card flex flex-col justify-between reveal-on-scroll" data-tilt>
+                    <div>
+                        <div class="w-12 h-12 rounded-2xl bg-emerald-50 text-emerald-600 flex items-center justify-center mb-5">
+                            <i data-lucide="zap" class="w-6 h-6"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-[#0a001b]">Redesain & Optimasi Kecepatan</h3>
+                        <p class="text-xs sm:text-sm text-slate-600 mt-2 leading-relaxed">
+                            Punya website lama yang lambat atau berantakan di HP? Kita rombak total dengan kode bersih agar loading di bawah 1 detik di jaringan 4G.
+                        </p>
+                    </div>
+                    <ul class="mt-6 pt-4 border-t border-slate-100 space-y-2 text-xs text-slate-600">
+                        <li class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-emerald-600"></i> Pangkas load time &lt; 1s</li>
+                        <li class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-emerald-600"></i> Sempurna di layar smartphone</li>
+                        <li class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-emerald-600"></i> Pemasangan SSL HTTPS aman</li>
+                    </ul>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ======================================================== -->
+    <!-- 6. TENTANG FABER TAMPUBOLON (ABOUT)                      -->
+    <!-- ======================================================== -->
+    <section id="tentang" class="py-20 border-t border-slate-100 bg-white">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                
+                <!-- Portrait Card with Ian Dunkerley Border Shadow -->
+                <div class="lg:col-span-5 text-center lg:text-left reveal-on-scroll">
+                    <div class="dunkerley-project-card p-6 inline-block w-full max-w-sm" data-tilt>
+                        <div class="relative w-full aspect-[4/5] rounded-2xl overflow-hidden mb-5 bg-slate-100 border border-slate-200">
+                            <img src="img/profile-portrait.jpg" alt="Faber Tampubolon" class="w-full h-full object-cover object-center">
+                            <div class="absolute bottom-3 right-3 w-10 h-10 rounded-xl bg-blue-600 text-white flex items-center justify-center font-extrabold text-sm shadow-lg shadow-blue-500/40">
+                                K
+                            </div>
+                        </div>
+
+                        <div class="flex items-center justify-between text-left">
+                            <div>
+                                <h3 class="text-xl font-bold text-[#0a001b]">Faber Tampubolon</h3>
+                                <p class="text-xs text-blue-600 font-mono font-bold mt-0.5">Kelb's Studio • Bekasi / Jakarta</p>
+                            </div>
+                            <span class="w-2.5 h-2.5 rounded-full bg-emerald-500 shrink-0" title="Tersedia"></span>
+                        </div>
+                        
+                        <p class="text-xs text-slate-600 mt-3 leading-relaxed text-left">
+                            Developer yang mengutamakan kode bersih, komunikasi transparan, dan hasil kerja yang benar-benar bisa dipakai jualan.
+                        </p>
+
+                        <div class="mt-4 pt-4 border-t border-slate-100 space-y-2 text-left">
+                            <a href="https://wa.me/6282160641174" target="_blank" class="flex items-center gap-2 text-xs text-slate-700 hover:text-emerald-600 transition-colors">
+                                <i data-lucide="phone" class="w-3.5 h-3.5 text-emerald-600"></i>
+                                <span class="font-mono text-xs">+62 821-6064-1174</span>
+                            </a>
+                            <a href="mailto:halo.kelbstudio@gmail.com" class="flex items-center gap-2 text-xs text-slate-700 hover:text-blue-600 transition-colors">
+                                <i data-lucide="mail" class="w-3.5 h-3.5 text-blue-600"></i>
+                                <span class="font-mono text-xs">halo.kelbstudio@gmail.com</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Principles & Human Values -->
+                <div class="lg:col-span-7 space-y-6 reveal-on-scroll">
+                    <span class="text-xs font-mono font-bold text-blue-600 uppercase tracking-widest block">Filosofi Kerja</span>
+                    <h2 class="text-2xl sm:text-4xl font-extrabold text-[#0a001b] leading-tight">
+                        Tanpa Perantara, Tanpa Biaya Tersembunyi, Selesai Sampai Siap Pakai.
+                    </h2>
+                    
+                    <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
+                        Seringkali pemilik bisnis mengeluh: bikin website mahal tapi hasilnya lelet, susah dihubungi saat ada error, atau harus bayar biaya langganan plugin setiap bulan. Di Kelb's Studio, saya memegang prinsip:
+                    </p>
+
+                    <div class="space-y-3.5 pt-2">
+                        <div class="p-4 rounded-2xl bg-[#fafeff] border border-blue-500/15 flex items-start gap-3.5 shadow-sm">
+                            <i data-lucide="shield-check" class="w-5 h-5 text-blue-600 shrink-0 mt-0.5"></i>
+                            <div>
+                                <h4 class="text-xs font-bold text-[#0a001b]">Kepemilikan Penuh 100% di Tangan Anda</h4>
+                                <p class="text-[11px] text-slate-600 mt-1">Domain dan akun hosting didaftarkan resmi atas nama bisnis Anda. Tidak ada penguncian (vendor lock-in).</p>
+                            </div>
+                        </div>
+
+                        <div class="p-4 rounded-2xl bg-[#fafeff] border border-blue-500/15 flex items-start gap-3.5 shadow-sm">
+                            <i data-lucide="code-2" class="w-5 h-5 text-emerald-600 shrink-0 mt-0.5"></i>
+                            <div>
+                                <h4 class="text-xs font-bold text-[#0a001b]">Bebas Biaya Langganan Plugin Bulanan</h4>
+                                <p class="text-[11px] text-slate-600 mt-1">Website dibangun dengan kode bersih dan mandiri. Bebas dari tagihan plugin yang tiba-tiba expired.</p>
+                            </div>
+                        </div>
+
+                        <div class="p-4 rounded-2xl bg-[#fafeff] border border-blue-500/15 flex items-start gap-3.5 shadow-sm">
+                            <i data-lucide="headphones" class="w-5 h-5 text-amber-600 shrink-0 mt-0.5"></i>
+                            <div>
+                                <h4 class="text-xs font-bold text-[#0a001b]">Garansi 3 Bulan & Komunikasi Langsung ke Developernya</h4>
+                                <p class="text-[11px] text-slate-600 mt-1">Jika ada error, perubahan nomor WhatsApp, atau kendala teknis setelah website online, saya bantu perbaiki tanpa biaya tambahan.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ======================================================== -->
+    <!-- 7. PERTANYAAN UMUM (FAQ ACCORDION)                       -->
+    <!-- ======================================================== -->
+    <section id="faq" class="py-20 border-t border-slate-100 bg-[#fafeff]">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6">
+            
+            <div class="text-center mb-14 reveal-on-scroll">
+                <span class="text-xs font-mono font-bold text-blue-600 uppercase tracking-widest block mb-2">FAQ</span>
+                <h2 class="text-2xl sm:text-4xl font-extrabold text-[#0a001b]">Pertanyaan yang Sering Diajukan</h2>
+                <p class="text-xs sm:text-sm text-slate-600 mt-2">Jawaban cepat untuk hal-hal yang paling sering ditanyakan calon klien.</p>
+            </div>
+
+            <div class="space-y-3.5 reveal-on-scroll">
+                <details class="faq-dunkerley group">
+                    <summary class="flex items-center justify-between text-sm font-bold text-[#0a001b] select-none">
+                        <span>Berapa estimasi biaya pembuatan website di Kelb's Studio?</span>
+                        <i data-lucide="chevron-down" class="faq-icon w-4 h-4 text-slate-400 transition-transform duration-200"></i>
+                    </summary>
+                    <p class="text-xs text-slate-600 mt-3 leading-relaxed border-t border-slate-100 pt-3">
+                        Biaya investasi disesuaikan secara transparan berdasarkan skala kebutuhan dan fitur bisnis Anda (mulai dari landing page profil ringkas hingga custom web application dengan kalkulator medis atau katalog produk). Di awal kita selalu <strong>konsultasi santai & bebas biaya</strong> via WhatsApp untuk membedah konsep Anda, lalu saya berikan penawaran harga yang masuk akal dan transparan tanpa ada biaya langganan tersembunyi di belakang.
+                    </p>
+                </details>
+
+                <details class="faq-dunkerley group">
+                    <summary class="flex items-center justify-between text-sm font-bold text-[#0a001b] select-none">
+                        <span>Berapa lama proses pembuatan website dari awal sampai live?</span>
+                        <i data-lucide="chevron-down" class="faq-icon w-4 h-4 text-slate-400 transition-transform duration-200"></i>
+                    </summary>
+                    <p class="text-xs text-slate-600 mt-3 leading-relaxed border-t border-slate-100 pt-3">
+                        Rata-rata memakan waktu <strong>3 hingga 7 hari kerja</strong> setelah materi konten (foto, teks layanan, nomor WA) diterima lengkap. Untuk website yang membutuhkan fitur kalkulator khusus, biasanya sekitar 5-10 hari kerja.
+                    </p>
+                </details>
+
+                <details class="faq-dunkerley group">
+                    <summary class="flex items-center justify-between text-sm font-bold text-[#0a001b] select-none">
+                        <span>Apakah tampilan, item layanan, atau foto bisa sesuai permintaan saya?</span>
+                        <i data-lucide="chevron-down" class="faq-icon w-4 h-4 text-slate-400 transition-transform duration-200"></i>
+                    </summary>
+                    <p class="text-xs text-slate-600 mt-3 leading-relaxed border-t border-slate-100 pt-3">
+                        <strong>Bisa banget dan sangat fleksibel!</strong> Semua tampilan, warna, item layanan, hingga foto-foto bisa disesuaikan 100% dengan keinginan dan karakter bisnis Anda. Anda cukup menyiapkan materi dalam bentuk <strong>catatan ringkas (Word/WhatsApp) serta file foto</strong> yang ingin ditampilkan, lalu serahkan ke saya. Saya yang akan merapikan dan menyusunnya menjadi website modern yang profesional.
+                    </p>
+                </details>
+
+                <details class="faq-dunkerley group">
+                    <summary class="flex items-center justify-between text-sm font-bold text-[#0a001b] select-none">
+                        <span>Apakah saya harus mengerti koding atau teknis hosting?</span>
+                        <i data-lucide="chevron-down" class="faq-icon w-4 h-4 text-slate-400 transition-transform duration-200"></i>
+                    </summary>
+                    <p class="text-xs text-slate-600 mt-3 leading-relaxed border-t border-slate-100 pt-3">
+                        Sama sekali tidak perlu! Saya yang akan mengurus seluruh urusan teknis: pemilihan domain .com, konfigurasi server hosting cPanel, pemasangan sertifikat keamanan SSL (gembok hijau), hingga tombol WhatsApp teruji jalan lancar. Anda tinggal terima beres.
+                    </p>
+                </details>
+
+                <details class="faq-dunkerley group">
+                    <summary class="flex items-center justify-between text-sm font-bold text-[#0a001b] select-none">
+                        <span>Bagaimana kalau nanti nomor WA saya ganti atau ada teks yang mau diubah?</span>
+                        <i data-lucide="chevron-down" class="faq-icon w-4 h-4 text-slate-400 transition-transform duration-200"></i>
+                    </summary>
+                    <p class="text-xs text-slate-600 mt-3 leading-relaxed border-t border-slate-100 pt-3">
+                        Setiap proyek dilindungi <strong>Garansi Pemeliharaan 3 Bulan Penuh</strong>. Cukup chat saya di WhatsApp, dan saya akan bantu perbarui nomor kontak, harga layanan, atau perbaikan teknis secara gratis selama masa garansi.
+                    </p>
+                </details>
+
+                <details class="faq-dunkerley group">
+                    <summary class="flex items-center justify-between text-sm font-bold text-[#0a001b] select-none">
+                        <span>Bagaimana tahapan pembayarannya?</span>
+                        <i data-lucide="chevron-down" class="faq-icon w-4 h-4 text-slate-400 transition-transform duration-200"></i>
+                    </summary>
+                    <p class="text-xs text-slate-600 mt-3 leading-relaxed border-t border-slate-100 pt-3">
+                        Sistem pembayaran bertahap dan aman: <strong>DP 50%</strong> di awal untuk mulai pengerjaan dan reservasi domain/hosting, dan pelunasan <strong>50%</strong> setelah website selesai di-review bersama serta siap diluncurkan secara live.
+                    </p>
+                </details>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ======================================================== -->
+    <!-- 8. CALL TO ACTION                                        -->
+    <!-- ======================================================== -->
+    <section id="kontak" class="py-20 bg-white border-t border-slate-100">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 text-center">
+            
+            <div class="dunkerley-project-card p-8 sm:p-14 reveal-on-scroll" data-tilt>
+                <span class="inline-flex items-center gap-1.5 text-xs font-mono font-bold text-emerald-700 bg-emerald-50 border border-emerald-200 px-3.5 py-1 rounded-full mb-3">
+                    <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+                    Konsultasi Bebas Biaya
+                </span>
+                
+                <h2 class="text-2xl sm:text-4xl font-extrabold text-[#0a001b]">
+                    Punya Rencana Bikin Website atau Mau Tanya Dulu?
+                </h2>
+                
+                <p class="mt-3 text-xs sm:text-sm text-slate-600 max-w-lg mx-auto leading-relaxed">
+                    Bisa tanya-tanya estimasi waktu, rekomendasi nama domain, atau estimasi biaya tanpa komitmen apapun. Mari bicarakan langsung dengan saya.
+                </p>
+
+                <div class="mt-8 flex flex-col sm:flex-row items-center justify-center gap-3.5">
+                    <a href="https://wa.me/6282160641174?text=Halo%20Faber%20(Kelb's%20Studio),%20saya%20tertarik%20untuk%20konsultasi%20pembuatan%20website" target="_blank" class="btn-electric w-full sm:w-auto">
+                        <i data-lucide="message-circle" class="w-4 h-4"></i>
+                        <span>Chat WhatsApp (+62 821-6064-1174)</span>
+                    </a>
+                    
+                    <button onclick="copyContact('halo.kelbstudio@gmail.com', 'Alamat Email')" class="btn-ghost-light w-full sm:w-auto">
+                        <i data-lucide="mail" class="w-4 h-4 text-blue-600"></i>
+                        <span>Salin Email Saya</span>
+                    </button>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ======================================================== -->
+    <!-- 9. SIGNATURE BOTTOM SVG CURVE WAVE DIVIDER               -->
+    <!-- ======================================================== -->
+    <svg class="svg-curve" viewBox="0 0 1440 79" xmlns="http://www.w3.org/2000/svg">
+        <path d="M-100 0C-100 0 218.416 55.835 693.5 55.835C1168.58 55.835 1487 0 1487 0V79H-100V0Z"></path>
+    </svg>
+
+    <!-- ======================================================== -->
+    <!-- 10. SIGNATURE MIDNIGHT NAVY FOOTER (IAN DUNKERLEY STYLE) -->
+    <!-- ======================================================== -->
+    <footer class="bg-[#0a001b] text-white py-12">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 flex flex-col sm:flex-row items-center justify-between gap-6">
+            <div class="flex items-center gap-3">
+                <div class="w-8 h-8 rounded-lg bg-blue-600 text-white flex items-center justify-center font-extrabold text-sm shadow">
+                    K
+                </div>
+                <span class="text-xs text-slate-400">&copy; 2026 Faber Tampubolon (Kelb's Studio). All Rights Reserved.</span>
+            </div>
+
+            <div class="flex items-center gap-6 text-xs text-slate-400">
+                <a href="#beranda" class="hover:text-white transition-colors">Kembali ke Atas ↑</a>
+                <a href="https://bidanismiasih.com" target="_blank" class="hover:text-blue-400 transition-colors">Lihat Bidan Ismiasih Live ↗</a>
+                <a href="https://wa.me/6282160641174" target="_blank" class="hover:text-emerald-400 transition-colors">WhatsApp</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Application Script -->
+    <script src="js/app.js"></script>
+</body>
+</html>
