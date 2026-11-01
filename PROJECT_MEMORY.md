@@ -29,7 +29,7 @@
 - **Struktur Visual Ikonik:**
   1. **Top Accent Line:** Garis aksen `border-top: 6px solid #2b69fb` (Electric Blue).
   2. **Midnight Navy Hero (`#0a001b`):** Header & Hero gelap mewah dengan tipografi Montserrat tegas, tombol kapsul taktil, dan skulptur **Interactive 3D Hologram Logo Kelb's Studio** yang melayang dinamis dengan cincin giroskop Three.js dan debu partikel neon.
-  3. **Tactile 3D Pushable Buttons & Nav:** Navbar persis seperti `bidanismiasih.com` (menu aktif berwujud kartu 3D `.nav-active-3d`, menu lainnya clean text link `.nav-link-clean`, serta dua tombol aksi 3D berdampingan di kanan). Seluruh tombol aksi dilengkapi bibir 3D tebal (`border-bottom`), bayangan realistis, dan efek fisik tertekan ke bawah (`translateY`) saat diklik.
+  3. **Tactile 3D Pushable Buttons & Nav (Persis Bidan Ismiasih):** Navbar menggunakan sistem `.nav-link-soft` adaptif dengan efek hover 3D, active 3D pill badge (`border-bottom: 3.5px solid #1344c2`), ScrollSpy presisi, layout lega `max-w-7xl` dengan divider identitas brand, serta mobile drawer 3D. Seluruh tombol aksi dilengkapi bibir 3D tebal (`border-bottom`), bayangan realistis, dan efek fisik tertekan ke bawah (`translateY`) saat diklik. Fully compatible & optimized untuk Android (Chrome/Samsung), iPad/Tablet, macOS/Safari, dan Windows.
   4. **Light Gallery Body (`#fafeff`):** Galeri proyek dengan kartu rounded mewah (`border-radius: 2rem`), garis tepi halus berpadu pendaran biru (`0 0 1.5rem 0.5rem rgba(43, 105, 251, 0.08)`).
   5. **Inverted Bottom SVG Curve Wave:** Melengkung kembali ke bawah menuju footer midnight navy (`#0a001b`).
 - **Palet Warna:**
